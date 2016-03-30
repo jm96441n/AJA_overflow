@@ -1,23 +1,28 @@
 <main>
 
-<h3><%= @user.username %></h3>
-<p>Member since : <%=@user.created_at%></p>
-<img src = "http://blog.on.com/wp-content/uploads/2014/01/profile-pic.jpg">
-<p>Number of questions asked: <%= @user.questions.size %></p>
-<p>Number of answers given: <%= @user.answers.size %></p>
+<div class="row large-5 columns" id="profile-view">
+  <h3><%= @user.username %></h3>
+  <p>Member since : <%=@user.created_at%></p>
+  <img id = "profile-pic" src = "http://blog.on.com/wp-content/uploads/2014/01/profile-pic.jpg">
+  <p>Number of questions asked: <%= @user.questions.size %></p>
+  <p>Number of answers given: <%= @user.answers.size %></p>
+</div>
 
 <div>
+
+<div class="list-of-things row large-5 columns">
   <p>Questions Asked:</p>
   <% @user.questions.each do |question|%>
   <p><%= question.question_text %></p>
   <%end%>
 </div>
 
-<div>
+<div class="list-of-things row large-5 columns">
   <p>Answers Given:</p>
   <% @user.answers.each do |answer|%>
   <p><%= answer.answer_text %></p>
   <%end%>
 </div>
+
 
 </main>
