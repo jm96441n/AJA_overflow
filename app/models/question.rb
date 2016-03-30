@@ -5,6 +5,6 @@ class Question < ActiveRecord::Base
   has_many :favorites, as: :favoritable
   has_many :votes, as: :votable
   belongs_to :user
-  has_many :tagquestions #check name
-  has_many :tags, through: :tagquestions #check name
+  has_many :tag_questions #check name
+  has_many :tags, through: :tag_questions #check name
 end
