@@ -11,11 +11,11 @@
 </head>
 
 <body>
-    <header>
-      <h1>Questions + Answers</h1>
+    <header class="top-bar">
+      <h1 class="top-bar-title">Questions + Answers</h1>
       <nav>
-        <ul>
-          <% if logged_in? %>
+        <ul class="menu top-bar-right">
+          <% if true %>
             <li>Logout</li>
             <li>Username</li>
           <% else %>
@@ -32,7 +32,7 @@
 
     <footer>
       <nav>
-        <ul>
+        <ul class="menu">
           <li>About</li>
           <li>Contact</li>
           <li>Feedback</li>
