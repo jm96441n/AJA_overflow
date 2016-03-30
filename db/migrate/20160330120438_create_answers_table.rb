@@ -6,9 +6,6 @@ class CreateAnswersTable < ActiveRecord::Migration
       t.belongs_to :question, index: true, null: false
 
       t.timestamps null: false
-<<<<<<< HEAD
-=======
     end
->>>>>>> master
   end
 end
