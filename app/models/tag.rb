@@ -1,6 +1,6 @@
 class Tag < ActiveRecord::Base
-  # Remember to create a migration!
-  has_many :tagquestions
-  has_many :questions, through: :tagquestions #check name
+  has_many :tag_questions
+  has_many :questions, through: :tag_questions #check name
 
+  validates :tag_name, presence: true
 end

@@ -12,7 +12,7 @@ class CreateUserTable < ActiveRecord::Migration
       t.string :recovery_first_street, null: false
       t.string :recovery_first_pet, null: false
 
-      t.timestamps, null: false
+      t.timestamps null: false
     end
   end
 end
