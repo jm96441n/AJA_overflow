@@ -1,0 +1,33 @@
+<main>
+  <% if @errors %>
+    <%= erb :'errors/_errors' %>
+  <% end %>
+<div>
+  <form id="new_question_form" method="POST" action="/questions/new">
+    
+    <div>
+      <label for="question-text">whats your question?</label>
+      <input id="question-text" type="text" name="question_text" placeholder="type your question here">
+    </div>
+
+    <input id="new_question_button" type="submit" value="submit question">
+  </form>
+</div>
+
+  <br>
+  
+    <% @questions.each do |question| %>
+  <div class="row">
+    <div class="small-6 large-8 columns">...
+      <p>
+        <%= question.question_text %>
+      </p>
+    </div>   
+
+    <div class="small-6 large-8 columns">
+        <%= question.view_count %>
+    </div>
+  </div>
+    <% end %>
+  
+</main>
