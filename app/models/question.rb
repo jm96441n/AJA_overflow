@@ -9,4 +9,8 @@ class Question < ActiveRecord::Base
 
   validates :question_text, :user, presence: true
 
+  def vote_count
+    self.votes.size
+  end
+
 end
