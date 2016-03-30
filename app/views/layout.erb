@@ -15,12 +15,12 @@
       <h1 class="top-bar-title">Questions + Answers</h1>
       <nav>
         <ul class="menu top-bar-right">
-          <% if true %>
-            <li>Logout</li>
-            <li>Username</li>
+          <% if logged_in? %>
+            <a href='/logout'><li>Logout</li></a>
+            <a href="/users/<%= @current_user.id %>"><li><%= @current_user.username %></li></a>
           <% else %>
-            <li>Login</li>
-            <li>Register</li>
+            <a href='/login'><li>Login</li></a>
+            <a href='/users/new'><li>Register</li></a>
           <% end %>
         </ul>
       </nav>
