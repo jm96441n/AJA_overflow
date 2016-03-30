@@ -1,10 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/foundation.min.css">
+    <link rel="stylesheet" href="/css/app.css">
 
-  <title></title>
+    <link rel="stylesheet" href="/js/foundation.min.js">
+    <link rel="stylesheet" href="/js/app.js">
+  <title>Questions + Answers</title>
 </head>
+
 <body>
-  <%= yield %>
+    <header class="top-bar">
+      <h1 class="top-bar-title">Questions + Answers</h1>
+      <nav>
+        <ul class="menu top-bar-right">
+          <% if true %>
+            <li>Logout</li>
+            <li>Username</li>
+          <% else %>
+            <li>Login</li>
+            <li>Register</li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <nav>
+        <ul class="menu">
+          <li>About</li>
+          <li>Contact</li>
+          <li>Feedback</li>
+        </ul>
+      </nav>
+    </footer>
+
 </body>
+
 </html>

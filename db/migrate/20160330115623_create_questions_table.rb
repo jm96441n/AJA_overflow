@@ -9,3 +9,4 @@ class CreateQuestionsTable < ActiveRecord::Migration
     end
   end
 end
+

@@ -3,6 +3,12 @@ class CreateTagsquestionsTable < ActiveRecord::Migration
     create_table :tag_questions do |t|
       t.belongs_to :question, null: false, index: true
       t.belongs_to :tag, null: false, index: true
+<<<<<<< HEAD
       t.timestamps null: false
+=======
+
+      t.timestamps null: false
+    end
+>>>>>>> master
   end
 end

@@ -4,5 +4,10 @@ class CreateTagsTable < ActiveRecord::Migration
       t.string :tag_name, null: false
 
       t.timestamps null: false
+<<<<<<< HEAD
+=======
+    end
+>>>>>>> master
   end
 end
+
