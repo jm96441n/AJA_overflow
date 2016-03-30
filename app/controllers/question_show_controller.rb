@@ -15,7 +15,6 @@ end
 #edit question route
 get '/questions/:id/edit' do
 
-    binding.pry
   if request.xhr?
   else
   @question = Question.find_by(id: params[:id])
