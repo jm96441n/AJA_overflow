@@ -7,9 +7,9 @@
 <p>Comments:<%@question.comments.size%></p>
 <p>Votes:<%@question.votes.size%></p>
 
-<a href="/questions/<%=@question.id%>/edit">Up Vote</a>
-<a href="/questions/<%=@question.id%>/edit">Down Vote</a>
-<a href="/questions/<%=@question.id%>/edit">Favorite</a>
+<a href="/questions/<%=@question.id%>/edit" id="up-vote-button">Up Vote</a>
+<a href="/questions/<%=@question.id%>/edit" id="down-vote-button">Down Vote</a>
+<a href="/questions/<%=@question.id%>/edit" id="favorite-button">Favorite</a>
 
 <h5>Comments</h5>
 
