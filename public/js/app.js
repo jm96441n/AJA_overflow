@@ -12,6 +12,7 @@ $("#up-vote-button").on("click",function(event){
     method: 'get',
     data: {action: "up-vote"}
   }).done(function(response){
+    var votes_count = response.votes
     debugger
   })
 })
