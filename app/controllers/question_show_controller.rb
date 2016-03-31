@@ -67,7 +67,7 @@ post '/questions/:id/edit' do
   question.update(question_text: params[:question_text])
 
   if question.save
-
+    binding.pry
   else
 
   end
