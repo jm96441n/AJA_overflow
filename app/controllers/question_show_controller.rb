@@ -51,7 +51,11 @@ get '/questions/:id/edit' do
           status 400
         end
       when "edit"
-        #insert logic for editing question here.
+        if current_user && Question.author?(@question.id, current_user.id)
+          #insert logic for editing question here
+        else
+          #raise error message - this person is not allowed to edit a question
+        end
     end
   else
     erb :'questions/edit'

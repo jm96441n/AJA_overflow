@@ -4,6 +4,8 @@
 
 <p>Asked by<%= @asker.username %></p>
 <p>Updated on<%= @question.updated_at %></p>
+
+<div id="question-stats">
 <p id="comment-count">Comments:</p>
   <p><%=@question.comments.size%></p>
 <p>Up Votes:</p>
@@ -14,10 +16,14 @@
   <p id="composite-votes"><%=Vote.composite_votes(@question.id, "Question")%></p>
 <p>Favorited:</p>
   <p id="favorite_count"><%=Favorite.favorite_total(@question.id, "Question")%></p>
+</div>
 
+<div id="question-action-buttons">
 <a href="/questions/<%=@question.id%>/edit" id="up-vote-button">Up Vote</a>
 <a href="/questions/<%=@question.id%>/edit" id="down-vote-button">Down Vote</a>
 <a href="/questions/<%=@question.id%>/edit" id="favorite-button">Favorite</a>
+</div>
+
 
 <h5>Comments</h5>
 
