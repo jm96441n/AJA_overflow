@@ -1,5 +1,5 @@
 # Yoda Know
-## Brought to you by: @alran @akeem-s @jm96441n
+Brought to you by: @alran @akeem-s @jm96441n
 
 
 ### Join our trello group here:
@@ -29,4 +29,5 @@ dark blue = #344096
 
 light brown = #C48150
 
-Link to star wars CSS color scheme (A New Hope) --> http://www.fubiz.net/en/2015/04/20/the-colors-of-star-wars-palettes-2/
+####Link to star wars CSS color scheme (A New Hope):
+http://www.fubiz.net/en/2015/04/20/the-colors-of-star-wars-palettes-2/
