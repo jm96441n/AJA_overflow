@@ -1,16 +1,26 @@
-
 get "/users/new" do
-	erb :'/users/new'
+  if request.xhr?
+    erb :'/users/_new', {layout: false}
+  else 
+    erb :'/users/new'
+  end
 end
 
 post '/users' do
-
 	user = User.new(params[:user])
-	user.save
+
 	if user.save
-		session[:user_id] = user.id
-		redirect "/users/#{session[:user_id]}"
-	else
+    if request.xhr?
+      session[:user_id] = user.id
+      content_type :json
+      {username: params[:user][:username], password: params[:user][:password]}.to_json
+
+      erb :'/index', {layout: false} 
+    else
+  		session[:user_id] = user.id
+  		redirect "/users/#{session[:user_id]}"
+    end
+  else
 		@errors = user.errors.full_messages
 		erb :'/users/new'
 	end

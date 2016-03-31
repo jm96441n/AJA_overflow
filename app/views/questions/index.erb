@@ -8,14 +8,15 @@
     <div>
       <label for="question-text">whats your question?</label>
       <input id="question-text" type="text" name="question_text" placeholder="type your question here">
-    </div>
+    </div> 
 
     <input id="new_question_button" type="submit" value="submit question">
   </form>
 </div>
 
   <br>
-  
+
+<section id="questions-list-section">
     <% @questions.each do |question| %>
   <div class="row">
     <div class="small-6 large-8 columns">...
@@ -29,5 +30,9 @@
     </div>
   </div>
     <% end %>
-  
+</section>  
+  <div id="form-placeholder"></div>
+  <div id="register-form-placeholder"> </div>
+  <div id="form-placeholder-background"></div>
+
 </main>

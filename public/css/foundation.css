@@ -11,6 +11,13 @@
    * 2. Prevent iOS and IE text size adjust after device orientation change,
    *    without disabling user zoom.
    */
+#user-login-form-placeholder-background {
+  display: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+}
+   
 html {
   font-family: sans-serif;
   /* 1 */

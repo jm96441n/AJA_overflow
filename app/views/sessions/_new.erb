@@ -1,0 +1,19 @@
+<main>
+  <% if @errors %>
+    <%= @errors[0]  %>
+  <% end %>
+  <form id="login-form" action='/login' method='post'>
+    <div>
+      <h4> Enter your username: </h4>
+      <input type='text' name='user[username]' placeholder='username' >
+    </div>
+    <div>
+      <h4> Enter your password: </h4>
+      <input type='password' name='user[password]' placeholder='password'>
+    </div>
+    <div>
+      <input type='submit' value='Log In'>
+    </div>
+  </form>
+
+</main>
