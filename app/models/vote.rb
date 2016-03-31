@@ -9,4 +9,11 @@ class Vote < ActiveRecord::Base
     up_votes.size
   end
 
+  def self.down_votes(id,type)
+    down_votes = Vote.where(up_or_down: "down").where(votable_id: id).where(votable_type: type)
+    down_votes.size
+  end
+
+
+
 end

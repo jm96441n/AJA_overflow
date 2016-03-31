@@ -33,8 +33,9 @@ get '/questions/:id/edit' do
       when "down-vote"
         down_vote = Vote.new({votable_id: @question.id, votable_type: "Question", user: current_user, up_or_down: "down"})
         if down_vote.save
+          down_vote_count = Vote.down_votes(@question.id, down_vote.votable_type)
           content_type :json
-          {votes: @question.vote_count.to_s}.to_json
+          {votes: down_vote_count}.to_json
         else
           status 400
         end

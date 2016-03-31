@@ -13,7 +13,6 @@ $("#up-vote-button").on("click",function(event){
     data: {action: "up-vote"}
   }).done(function(response){
     var votes_count = response.votes
-    debugger
     $("#up-vote-count").text(votes_count)
   }).fail(function(){
     //raise error
