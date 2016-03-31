@@ -28,3 +28,5 @@ grey/white = #E4E4E4 (lettering in main buttons)
 dark blue = #344096
 
 light brown = #C48150
+
+Link to star wars CSS color scheme (A New Hope) --> http://www.fubiz.net/en/2015/04/20/the-colors-of-star-wars-palettes-2/
