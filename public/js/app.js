@@ -18,7 +18,7 @@ $(document).ready(function(){
     });
   });
 
-    // render login form on index/home page
+    // render login form 
   $("#login-link").on("click", function(event){
     event.preventDefault();
 
@@ -28,12 +28,13 @@ $(document).ready(function(){
       url: path,    
       method: "get"
     }).done(function(response){
-      $("#user-login-form-placeholder").html(response);
+      $("#form-placeholder").html(response);
       $("#new_question_form").fadeOut("10000"); 
       $("#questions-list-section").fadeOut("10000");
     });
    });
 
+    // post route for login form 
   $("#user-login-form-placeholder").on("submit", "#login-form", function(event){
     event.preventDefault();
     var path = $(event.target).attr("action");
@@ -54,6 +55,21 @@ $(document).ready(function(){
     })
   })
 
+  $("#register-link").on("click", function(event){
+    event.preventDefault();
+    
+    var path = $("a[href='/users/new']").attr("href");
+
+    $.ajax({
+      url: path,
+      type: "get"
+    })
+    .done(function(response){
+      $("#form-placeholder").html(response);
+      $("#new_question_form").fadeOut("10000"); 
+      $("#questions-list-section").fadeOut("10000");
+    })
+  })
 });
 
 
