@@ -37,22 +37,18 @@
 <p><%= comment.comment_text %> by <%= User.find_by(id: comment.user_id).username%> on <%=comment.created_at %></p>
 <% end %>
 
-<h5>Answers</h5>
-<% if @question.answers.size > 0 %>
-<% @question.answers.each do |answer| %>
-<p><%= answer.answer_text %></p>
-  <% answer.comments.each do |comment| %>
-    <p><%= comment %></p>
-  <% end %>
-<% end %>
-<% end %>
+<%= erb :"/answers/_answers_list", locals: {question: @question}, layout: false %>
 
+<% if logged_in? %>
 <h5>Your Answer</h5>
   <form id="your_answer_form" method="POST" action="/answers/new">
       <label for="your_answer">Submit an answer to this question:</label>
-      <textarea id="your_answer" name="your_answer" placeholder="type your answer here"></textarea>
+      <textarea id="your_answer" name="answer[answer_text]" placeholder="type your answer here"></textarea>
+      <input type="hidden" name="answer[user_id]" value="<%=current_user.id%>">
+      <input type="hidden" name="answer[question_id]" value="<%=current_user.id%>">
       <input type="submit" value="Submit Answer">
   </form>
+<% end %>
 
 
 
