@@ -19,7 +19,8 @@
 }
 
 #header {
-  background-color: #344096;
+  /*background-color: #78DF3E;*/
+  background-color: #60452E;
   color: #fff;
   padding: 2rem 4rem;
 }
@@ -78,7 +79,7 @@
 }
 
 .homepage-questions {
-  background-color: #B4659C;
+
   color: white;
   position: absolute;
   display: inline-block;
@@ -86,13 +87,34 @@
   width: 10%;
   z-index: 1;
   text-align: center;
-  border-radius: 25px;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
-    font-size: 30px;
 }
 
+#find_questions_button {
+  background-color: #78DF3E;
+  border:none;
+  font-size:30px;
+
+}
+
+#ask-button-homepage {
+  background-color: #78DF3E;
+  border-radius: 25px;
+}
+
+#find-button-homepage {
+  background-color: #78DF3E;
+  border-radius: 25px;
+}
+
+#ask_button {
+  background-color: #78DF3E;
+  border:none;
+  font-size:30px;
+}
 
 #find-button-homepage {
   top: 30%;
@@ -104,8 +126,5 @@
   left: 20%;
   top: 50%;
 }
-
-
-
 
 
