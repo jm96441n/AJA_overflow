@@ -5,15 +5,15 @@ class Vote < ActiveRecord::Base
   validates :votable_id, :votable_type, presence: true
 
   def self.up_votes(id,type)
-    Vote.where(up_or_down: "up").where(votable_id: id).where(votable_type: type).size
+    Vote.where("up_or_down = ? AND votable_id = ? AND votable_type = ?", "up", id, type).size
   end
 
   def self.down_votes(id,type)
-    Vote.where(up_or_down: "down").where(votable_id: id).where(votable_type: type).size
+    Vote.where("up_or_down = ? AND votable_id = ? AND votable_type = ?", "down", id, type).size
   end
 
   def self.composite_votes(id,type)
-    self.up_votes(id,type) - self.down_votes(id,type)
+    Vote.up_votes(id,type) - Vote.down_votes(id,type)
   end
 
 end
