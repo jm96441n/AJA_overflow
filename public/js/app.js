@@ -39,9 +39,9 @@ $("#down-vote-button").on("click",function(event){
 })
 
 
-$('#login_link').on('click', function(event){
+$('.top-bar-right').on('click','#login_link', function(event){
   event.preventDefault()
-  $('#login_form').css('display','inline');
+  $('#login_form').fadeIn(1000)
 })
 
 
@@ -49,7 +49,6 @@ $('#login_link').on('click', function(event){
 
 $('#login').on('submit', function(event){
   event.preventDefault();
-  var $target = $(event.target)
   var data = $(this).serialize();
   var params = {
     url: '/login',
@@ -58,9 +57,24 @@ $('#login').on('submit', function(event){
     dataType: 'html',
   }
   $.ajax(params).done(function(response){
-    $('login_form').css('display','hidden')
+    console.log(data)
+  $('#login_form').fadeOut(1000)
+  $('.top-bar-right').load('/index .top-bar-right');
+  }).fail(function(response){
+    alert('A correct username or password enter, you must')
   })
  });
 
+$('.top-bar-right').on('click','#logout', function(event){
+  event.preventDefault
+  params = {
+    url: '/logout',
+    method: 'get',
+    dataType: 'html'
+  }
+  $.ajax(params).done(function(){
+    $('.top-bar-right').load('/index .top-bar-right')
+  })
+})
 
 })

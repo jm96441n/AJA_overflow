@@ -1,13 +1,18 @@
 get '/login' do
 	erb :'/sessions/new'
+
 end
 
 post '/login' do
 	user  = User.find_by(username: params[:user][:username])
+
 	if request.xhr?
 		if user && user.authenticate(params[:user][:password])
 			session[:user_id] = user.id
+			status 200
+
 		else
+			status 442
 			@errors = ['A correct username of password, enter your must']
 		end
 	else
@@ -22,7 +27,11 @@ post '/login' do
 end
 
 get '/logout' do
-	session.clear
-	redirect '/'
+	if request.xhr?
+		session.clear
+	else
+		session.clear
+		redirect '/'
+	end
 end
 
