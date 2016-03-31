@@ -34,7 +34,7 @@
 <h5>Comments</h5>
 
 <% @question.comments.each do |comment| %>
-<p><%= comment.comment_text %></p>
+<p><%= comment.comment_text %> by <%= User.find_by(id: comment.user_id).username%> on <%=comment.created_at %></p>
 <% end %>
 
 <h5>Answers</h5>
