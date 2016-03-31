@@ -50,15 +50,27 @@ get '/questions/:id/edit' do
         else
           status 400
         end
-      when "edit"
-        if current_user && Question.author?(@question.id, current_user.id)
-          #insert logic for editing question here
-        else
-          #raise error message - this person is not allowed to edit a question
-        end
     end
   else
-    erb :'questions/edit'
+    if current_user #&& Question.author?(@question.id, current_user.id)
+      erb :'questions/edit'
+    else
+      #raise error message - this person is not allowed to edit a question
+      redirect "/questions/<%=@question.id%>"
+    end
   end
+end
+
+post '/questions/:id/edit' do
+  binding.pry
+  question = Question.find_by(id: params[:question_id])
+  question.update(question_text: params[:question_text])
+
+  if question.save
+
+  else
+
+  end
+
 end
 

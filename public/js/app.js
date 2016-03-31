@@ -54,6 +54,26 @@ $("#favorite-button").on("click",function(event){
   })
 })
 
+$("#edit_question_form").on("submit",function(event){
+  event.preventDefault()
+  debugger
+
+  var $target = $(event.target)
+  var editedQuestion = $target.serialize()
+
+  $.ajax({
+    url: $target.attr('action'),
+    method: 'post',
+    data: editedQuestion
+  }).done(function(response){
+    debugger
+    // response should be updated question text
+    $("#question-header-text").text(response)
+  }).fail(function(){
+    //raise error
+  })
+})
+
 
 
 })
