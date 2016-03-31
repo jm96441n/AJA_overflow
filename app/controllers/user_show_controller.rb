@@ -39,7 +39,33 @@ end
 # only allow edits if its your own profile
 get "/users/:id/edit" do
   @user = User.find_by(id: params[:id])
-  erb :'users/edit'
+
+  if request.xhr?
+    if @user.id == session[:user_id]
+      erb :'users/_edit', locals: {user: @user}, layout: false
+    else
+      redirect '/'
+    end
+  else
+    if @user.id == session[:user_id]
+      erb :'users/edit'
+    else
+      redirect '/'
+    end
+  end
+end
+
+put '/users/:id' do
+  @user = User.find_by(id: params[:id])
+  @user.assign_attributes(params[:user])
+
+  if @user.save
+    redirect "/users/#{@user.id}"
+  else
+    @errors = @user.errors.full_messages
+
+    erb :'/users/show'
+  end
 end
 
 get "/users/:id" do
