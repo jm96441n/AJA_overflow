@@ -1,4 +1,4 @@
-
+<div id='ask_background'>
 <div class='row'>
   <div id="question-stats">
     <div class='large-2 columns' >
@@ -30,7 +30,7 @@
 
 <div class='row'>
   <div class='small-2 columns' id="question-action-buttons">
-    <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button">Up Vote</a></p>
+    <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button"><img src='http://imgur.com/uPdxhgO'></a></p>
     <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button">Down Vote</a></p>
     <p><a href="/questions/<%=@question.id%>/edit" id="favorite-button">Favorite</a></p>
   </div>
@@ -67,3 +67,4 @@
     <input type="submit" value="Edit Question">
   </form>
 <% end %>
+</div>
