@@ -1,0 +1,11 @@
+<div id="answers-section">
+<h5>Answers</h5>
+<% if question.answers.size > 0 %>
+<% question.answers.each do |answer| %>
+<p><%= answer.answer_text %></p>
+  <% answer.comments.each do |comment| %>
+    <p><%= comment.comment_text %></p>
+  <% end %>
+<% end %>
+<% end %>
+</div>

@@ -51,10 +51,28 @@ get '/questions/:id/edit' do
           status 400
         end
       when "edit"
-        #insert logic for editing question here.
+        if current_user #&& Question.author?(@question.id, current_user.id)
+          erb :"/questions/_edit_question", locals: {question: @question}, layout: false
+        else
+          #raise error message - this person is not allowed to edit a question. reload page with error
+          redirect "/questions/<%=@question.id%>"
+        end
     end
   else
     erb :'questions/edit'
+    #right now if the user doesn't send an ajax request, it will automatically load the edit quesiton page, which is not necessarily what we want, if they are favoriting something or up/down voting something
+  end
+end
+
+#after user clicks to submit edits to question
+post '/questions/:id/edit' do
+  @question = Question.find_by(id: params[:question_id])
+  @question.update(question_text: params[:question_text])
+
+  if @question.save
+    redirect "/questions/#{@question.id}"
+  else
+    status 400
   end
 end
 
