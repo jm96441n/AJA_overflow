@@ -13,7 +13,8 @@ $("#up-vote-button").on("click",function(event){
     data: {action: "up-vote"}
   }).done(function(response){
     var votes_count = response.votes
-    $("#vote-count").text(votes_count)
+    debugger
+    $("#up-vote-count").text(votes_count)
   }).fail(function(){
     //raise error
   })
@@ -30,7 +31,7 @@ $("#down-vote-button").on("click",function(event){
     data: {action: "down-vote"}
   }).done(function(response){
     var votes_count = response.votes
-    $("#vote-count").text(votes_count)
+    $("#down-vote-count").text(votes_count)
   }).fail(function(){
     //raise error
   })
