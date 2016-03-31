@@ -6,7 +6,6 @@ end
 post '/users' do
 
 	user = User.new(params[:user])
-
 	user.save
 	if user.save
 		session[:user_id] = user.id

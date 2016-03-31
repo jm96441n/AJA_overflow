@@ -8,3 +8,7 @@
   background-color: #9EE8C6;
   width: 100%;
 }
+
+#login_form {
+	display: none;
+}

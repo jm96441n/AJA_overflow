@@ -19,6 +19,7 @@ $("#up-vote-button").on("click",function(event){
   })
 })
 
+
 $("#down-vote-button").on("click",function(event){
   event.preventDefault()
 
@@ -38,7 +39,28 @@ $("#down-vote-button").on("click",function(event){
 })
 
 
+$('#login_link').on('click', function(event){
+  event.preventDefault()
+  $('#login_form').css('display','inline');
+})
 
+
+
+
+$('#login').on('submit', function(event){
+  event.preventDefault();
+  var $target = $(event.target)
+  var data = $(this).serialize();
+  var params = {
+    url: '/login',
+    method: 'post',
+    data: data,
+    dataType: 'html',
+  }
+  $.ajax(params).done(function(response){
+    $('login_form').css('display','hidden')
+  })
+ });
 
 
 })
