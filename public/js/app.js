@@ -144,6 +144,7 @@ $('.top-bar-right').on('click','#logout', function(event){
     // get route for register form
   $("#register-link").on("click", function(event){
     event.preventDefault();
+    $("#login_form").fadeOut();
     
     var path = $("a[href='/users/new']").attr("href");
 
@@ -152,7 +153,7 @@ $('.top-bar-right').on('click','#logout', function(event){
       type: "get"
     })
     .done(function(response){
-      $("#form-placeholder").html(response);
+      $("#form-placeholder").html(response).fadeIn("100");
       $("#new_question_form").fadeOut("10000"); 
       $("#questions-list-section").fadeOut("10000");
     });
@@ -191,7 +192,6 @@ $('.top-bar-right').on('click','#logout', function(event){
       dataType: 'html'
     }).done(function(event){
       $("#new_question_form").load("/index #new_question_form");
-
     });
   });
 
