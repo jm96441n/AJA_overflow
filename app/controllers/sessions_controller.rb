@@ -1,5 +1,9 @@
-get '/login' do
-	erb :'/sessions/new'
+get '/login' do	
+	if request.xhr? 
+    erb :'/sessions/_new', {layout: false}
+  else
+    erb :'/sessions/new'
+  end
 end
 
 post '/login' do

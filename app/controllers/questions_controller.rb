@@ -9,7 +9,7 @@ get '/index' do
 end
 
 post '/questions/new' do
-  @question.new(question_text: params[:question_text], user_id: session[:logged_in_id])
+  @question.new(question_text: params[:question_text], user_id: session[:user_id])
 
   if @question.save
     redirect '/index'

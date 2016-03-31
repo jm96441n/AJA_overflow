@@ -8,3 +8,18 @@
   background-color: #9EE8C6;
   width: 100%;
 }
+
+#user-login-form-placeholder {
+  display: inline-block;
+  position: absolute;
+  top: 33%;
+  left: 40%;
+}
+
+##user-login-form-placeholder-background {
+  background-color: black;
+  opacity: 0.4;
+  display: fixed;
+  height: 100%;
+  width: 100%;
+}
