@@ -14,6 +14,8 @@ class Vote < ActiveRecord::Base
     down_votes.size
   end
 
-
+  def self.composite_votes(id,type)
+    self.up_votes - self.down_votes
+  end
 
 end
