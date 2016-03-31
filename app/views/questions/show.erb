@@ -1,9 +1,17 @@
 <main>
 
-<h3><%=@question.question_text %></h3>
+<h3 id="question-header-text"><%=@question.question_text %></h3>
 
-<p>Asked by<%= @asker.username %></p>
-<p>Updated on<%= @question.updated_at %></p>
+<p>Asked by <%= @asker.username %></p>
+<p>Updated on <%= @question.updated_at %></p>
+
+<% if logged_in? #&& Question.author?(@question.id, current_user.id) %>
+  <form id="edit_question_button" method="POST" action="/questions/<%=@question.id%>/edit">
+    <input type="submit" value="Edit Question">
+  </form>
+<% end %>
+
+<div id="question-stats">
 <p id="comment-count">Comments:</p>
   <p><%=@question.comments.size%></p>
 <p>Up Votes:</p>
@@ -12,26 +20,35 @@
   <p id="down-vote-count"><%=Vote.down_votes(@question.id, "Question")%></p>
 <p>Composite Votes:</p>
   <p id="composite-votes"><%=Vote.composite_votes(@question.id, "Question")%></p>
+<p>Favorited:</p>
+  <p id="favorite_count"><%=Favorite.favorite_total(@question.id, "Question")%></p>
+</div>
 
+<div id="question-action-buttons">
 <a href="/questions/<%=@question.id%>/edit" id="up-vote-button">Up Vote</a>
 <a href="/questions/<%=@question.id%>/edit" id="down-vote-button">Down Vote</a>
 <a href="/questions/<%=@question.id%>/edit" id="favorite-button">Favorite</a>
+</div>
+
 
 <h5>Comments</h5>
 
 <% @question.comments.each do |comment| %>
-<p><%= comment.comment_text %></p>
+<p><%= comment.comment_text %> by <%= User.find_by(id: comment.user_id).username%> on <%=comment.created_at %></p>
 <% end %>
 
-<h5>Answers</h5>
-<% if @question.answers.size > 0 %>
-<% @question.answers.each do |answer| %>
-<p><%= answer.answer_text %></p>
-<% end %>
-<% end %>
+<%= erb :"/answers/_answers_list", locals: {question: @question}, layout: false %>
 
+<% if logged_in? %>
 <h5>Your Answer</h5>
-
+  <form id="your_answer_form" method="POST" action="/answers/new">
+      <label for="your_answer">Submit an answer to this question:</label>
+      <textarea id="your_answer" name="answer[answer_text]" placeholder="type your answer here"></textarea>
+      <input type="hidden" name="answer[user_id]" value="<%=current_user.id%>">
+      <input type="hidden" name="answer[question_id]" value="<%=current_user.id%>">
+      <input type="submit" value="Submit Answer">
+  </form>
+<% end %>
 
 
 
