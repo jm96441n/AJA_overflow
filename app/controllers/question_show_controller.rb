@@ -1,3 +1,20 @@
+post '/questions/new' do
+  @question = Question.new(question_text: params[:question_text], user_id: session[:user_id])
+
+  if @question.save
+    if request.xhr?
+      content_type :json
+      {question_text: params[:question_text], user_id: session[:user_id]}.to_json
+
+      erb :'/index', {layout: false}
+    else
+      redirect '/index'
+    end
+  else
+    @question.errors.full_messages
+  end
+end
+
 #question show page route
 get '/questions/:id' do
   @question = Question.find_by(id: params[:id])

@@ -84,13 +84,10 @@ $(document).ready(function(){
       data: formData,
       dataType: 'html'
     }).done(function(response){
-      // console.log(formData);
-      // location.reload(); kind of works
       $(".top-bar-right").load("/index .top-bar-right");
       $("#register-form").fadeOut("10000");
       $("#new_question_form").fadeIn("10000"); 
       $("#questions-list-section").fadeIn("10000");
-      // $("#questions-list-section").scrollTop(300);
       $("body").scrollTop(0);
     });
   });
@@ -100,16 +97,18 @@ $(document).ready(function(){
 
     var path = $(event.target).attr("action");
     var formData = $(event.target).serialize();
-
+    
     $.ajax({
       url: path,
       type: 'post',
       data: formData,
       dataType: 'html'
     }).done(function(event){
-      alert("got this far");
+      $("#new_question_form").load("/index #new_question_form");
+
     });
   });
+
 });
 
   // post for register form. having trouble targeting parent div in order to bubble. for and parent div ids correspond and are in correct place. not sure what the problem is. 
