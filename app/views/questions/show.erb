@@ -1,34 +1,46 @@
 
+<div class='row'>
+  <div id="question-stats">
+    <div class='large-2 columns' >
+      <p id="comment-count" class='stats'>Comments:</p>
+        <p class='stats'><%=@question.comments.size%></p>
+    </div>
+    <div class='large-2 columns' >
+      <p class='stats'>Up Votes:</p>
+        <p class='stats' id="up-vote-count"><%= @up_votes %></p>
+    </div>
+    <div class='large-2 columns'>
+      <p class='stats'>Down Votes:</p>
+        <p class='stats' id="down-vote-count"><%= @down_votes %></p>
+    </div>
+    <div class='large-2 columns'>
+      <p class='stats'>Composite Votes:</p>
+        <p class='stats' id="composite-votes"><%= @comp_votes %></p>
+    </div>
+    <div class='large-2 columns'>
+      <p class='stats'>Favorited:</p>
+        <p class='stats' id="favorite_count"><%= @favorites %></p>
+    </div>
+    <div class='large-2 columns'>
+      <p class='stats'>Views</p>
+      <p class='stats'> 0 </p>
+  </div>
+</div>
 
+
+<div class='row'>
+  <div class='small-2 columns' id="question-action-buttons">
+    <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button">Up Vote</a></p>
+    <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button">Down Vote</a></p>
+    <p><a href="/questions/<%=@question.id%>/edit" id="favorite-button">Favorite</a></p>
+  </div>
+  <div class='large-10 columns'> 
 <h3 id="question-header-text"><%=@question.question_text %></h3>
-
-<p>Asked by <%= @asker.username %></p>
-<p>Updated on <%= @question.updated_at %></p>
-
-<% if logged_in? #&& Question.author?(@question.id, current_user.id) %>
-  <form id="edit_question_button" method="POST" action="/questions/<%=@question.id%>/edit">
-    <input type="submit" value="Edit Question">
-  </form>
-<% end %>
-
-<div id="question-stats">
-<p id="comment-count">Comments:</p>
-  <p><%=@question.comments.size%></p>
-<p>Up Votes:</p>
-  <p id="up-vote-count"><%=Vote.up_votes(@question.id, "Question")%></p>
-<p>Down Votes:</p>
-  <p id="down-vote-count"><%=Vote.down_votes(@question.id, "Question")%></p>
-<p>Composite Votes:</p>
-  <p id="composite-votes"><%=Vote.composite_votes(@question.id, "Question")%></p>
-<p>Favorited:</p>
-  <p id="favorite_count"><%=Favorite.favorite_total(@question.id, "Question")%></p>
+    <p class='quest_info'>Asked by <%= @asker.username %></p>
+    <p class='quest_info'>Updated on <%= @question.updated_at %></p>
+  </div>
 </div>
 
-<div id="question-action-buttons">
-<a href="/questions/<%=@question.id%>/edit" id="up-vote-button">Up Vote</a>
-<a href="/questions/<%=@question.id%>/edit" id="down-vote-button">Down Vote</a>
-<a href="/questions/<%=@question.id%>/edit" id="favorite-button">Favorite</a>
-</div>
 
 
 <h5>Comments</h5>
@@ -50,3 +62,8 @@
   </form>
 <% end %>
 
+<% if logged_in? #&& Question.author?(@question.id, current_user.id) %>
+  <form id="edit_question_button" method="POST" action="/questions/<%=@question.id%>/edit">
+    <input type="submit" value="Edit Question">
+  </form>
+<% end %>

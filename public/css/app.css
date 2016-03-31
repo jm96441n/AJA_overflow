@@ -81,3 +81,21 @@
   height: 10%;
   width: 10%;
 }
+
+#home_link {
+  color: white;
+}
+
+#home_link:hover {
+  color: green;
+}
+
+.stats {
+  text-align: center;
+}
+
+#quest_info {
+  text-align: center;
+}
+
+
