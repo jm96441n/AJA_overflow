@@ -13,10 +13,11 @@ $("#up-vote-button").on("click",function(event){
     data: {action: "up-vote"}
   }).done(function(response){
     $("#up-vote-count").text(response.up_votes)
-    $("composite-votes").text(response.composite_votes)
+    $("#composite-votes").text(response.composite_votes)
   }).fail(function(){
     //raise error
   })
+
 })
 
 $("#down-vote-button").on("click",function(event){
@@ -29,9 +30,9 @@ $("#down-vote-button").on("click",function(event){
     method: 'get',
     data: {action: "down-vote"}
   }).done(function(response){
-    debugger
+
     $("#down-vote-count").text(response.down_votes)
-    $("composite-votes").text(response.composite_votes)
+    $("#composite-votes").text(response.composite_votes)
   }).fail(function(){
     //raise error
   })
