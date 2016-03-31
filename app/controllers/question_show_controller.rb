@@ -1,3 +1,9 @@
+get '/questions/new' do
+
+  erb :"questions/new"
+end
+
+
 post '/questions/new' do
   @question = Question.new(question_text: params[:question_text], user_id: session[:user_id])
 

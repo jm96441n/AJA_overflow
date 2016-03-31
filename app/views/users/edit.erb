@@ -1,0 +1,60 @@
+<main>  
+  <h2> Edit your profile below </h2>
+  <% if @errors %>
+    <% @errors.each do |error| %>
+      <%= error %>
+    <% end %>
+  <% end %>
+
+  <form id="register-form" action='/users' method ='post'>
+    <input type="hidden" name="_method" value="PUT">
+
+    <div>
+      <h4>Enter your first name: </h4>
+      <input type='text' name='user[first_name]' placeholder='first name' value="<%= @user.first_name %>">
+    </div>
+
+    <div>
+      <h4>Enter your last name: </h4>
+      <input type='text' name='user[last_name]' placeholder='last name' value="<%= @user.last_name %>">
+    </div>
+
+    <div>
+      <h4>Enter your email: </h4>
+      <input type='text' name='user[email]' placeholder='email' value="<%= @user.email %>">
+    </div>
+
+    <div>
+      <h4>Enter your username</h4>
+      <input type='text' name='user[username]' placeholder='username' value="<%= @user.username %>">
+    </div>
+
+    <div>
+      <h4>Enter your password: </h4>
+      <input type='password' name='user[password]' placeholder='password' value="<%= @user.password %>">
+    </div>
+    
+    <h3>Below are recovery questions in case you forget or lose your password</h3>
+
+    <div>
+      <h4>Recovery Question 1: What is your mother's maiden name</h4>
+      <input type='text' name='user[recovery_mom_maiden_name]' value="<%= @user.recovery_mom_maiden_name %>">
+    </div>
+    
+    <div>
+      <h4>Recovery Question 2: What is the first street you lived on</h4>
+      <input type='text' name='user[recovery_first_street]' value="<%= @user.recovery_first_street %>">
+    </div>
+
+    <div>
+      <h4>Recovery Question 3: What is your first pet's name name</h4>
+      <input type='text' name='user[recovery_first_pet]' value="<%= @user.recovery_first_pet %>">
+    </div>
+
+    <div>
+      <input type='submit' value='Edit Account'>
+    </div>
+
+  </form>
+
+</main>

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     // up vote button on question page
-  $("#up-vote-button").on("click",function(event){
+  $("#up-vote-button").on("click", function(event){
     event.preventDefault();
 
     var $target = $(event.target);
@@ -17,8 +17,10 @@ $(document).ready(function(){
       //raise error
     });
   });
-    
-$("#down-vote-button").on("click",function(event){
+
+
+$("#down-vote-button").on("click", function(event){
+
   event.preventDefault()
 
   var $target = $(event.target)
@@ -36,7 +38,7 @@ $("#down-vote-button").on("click",function(event){
   })
 })
 
-$("#favorite-button").on("click",function(event){
+$("#favorite-button").on("click", function(event){
   event.preventDefault()
 
   var $target = $(event.target)
@@ -53,7 +55,7 @@ $("#favorite-button").on("click",function(event){
 })
 
 //edit question form is different from edit question button
-$("#edit_question_form").on("submit",function(event){
+$("#edit_question_form").on("submit", function(event){
   event.preventDefault()
 
   var $target = $(event.target)
@@ -71,7 +73,7 @@ $("#edit_question_form").on("submit",function(event){
 })
 
 // shows a partial with the edit question form instead of loading an edit form page
-$("#edit_question_button").on("submit",function(event){
+$("#edit_question_button").on("submit", function(event){
   event.preventDefault()
   var $target = $(event.target)
 
@@ -80,14 +82,13 @@ $("#edit_question_button").on("submit",function(event){
     method: 'get',
     data: {action: "edit"}
   }).done(function(response){
-    // response should be updated question text
     $("#question-header-text").append(response)
   }).fail(function(){
     //raise error
   })
 })
 
-$("#your_answer_form").on("submit",function(event){
+$("#your_answer_form").on("submit", function(event){
   event.preventDefault()
   var $target = $(event.target)
   var answerData = $target.serialize()
@@ -97,8 +98,6 @@ $("#your_answer_form").on("submit",function(event){
     method: 'post',
     data: answerData
   }).done(function(response){
-    debugger
-    // response should be partial html for new answer
     $("#answers-section").append(response)
   }).fail(function(){
     //raise error
@@ -145,7 +144,7 @@ $('.top-bar-right').on('click','#logout', function(event){
   $("#register-link").on("click", function(event){
     event.preventDefault();
     $("#login_form").fadeOut();
-    
+
     var path = $("a[href='/users/new']").attr("href");
 
     $.ajax({
@@ -154,7 +153,7 @@ $('.top-bar-right').on('click','#logout', function(event){
     })
     .done(function(response){
       $("#form-placeholder").html(response).fadeIn("100");
-      $("#new_question_form").fadeOut("10000"); 
+      $("#new_question_form").fadeOut("10000");
       $("#questions-list-section").fadeOut("10000");
     });
   });
@@ -164,7 +163,7 @@ $('.top-bar-right').on('click','#logout', function(event){
     event.preventDefault();
     var path = $(event.target).attr("action");
     var formData = $(event.target).serialize();
-    
+
     $.ajax({
       url: path,
       type: 'post',
@@ -173,18 +172,18 @@ $('.top-bar-right').on('click','#logout', function(event){
     }).done(function(response){
       $(".top-bar-right").load("/index .top-bar-right");
       $("#register-form").fadeOut("10000");
-      $("#new_question_form").fadeIn("10000"); 
+      $("#new_question_form").fadeIn("10000");
       $("#questions-list-section").fadeIn("10000");
       $("body").scrollTop(0);
     });
   });
-    
+
   $("#new_question_form").on("submit", function(event){
     event.preventDefault();
 
     var path = $(event.target).attr("action");
     var formData = $(event.target).serialize();
-    
+
     $.ajax({
       url: path,
       type: 'post',
@@ -195,8 +194,58 @@ $('.top-bar-right').on('click','#logout', function(event){
     });
   });
 
+
+
+
+// TWO HOMEPAGE BUTTONS BELOW ARE NOT COMPLETE
+$("#find-questions-button").on("submit",function(){
+  event.preventDefault();
+
+  $.ajax({
+    url: $(event.target).attr("action"),
+    type: 'post',
+  }).done(function(response){
+
+      $("#ask-button-homepage").fadeOut("10000");
+    $("#find-button-homepage").fadeOut("10000");
+    //append response html to bottom of page and scroll down to it
+  });
+
+
+})
+
+$("#ask-button").on("submit",function(){
+  event.preventDefault();
+
+  $.ajax({
+    url: $(event.target).attr("action"),
+    type: 'post',
+  }).done(function(response){
+
+    $("#ask-button-homepage").fadeOut("10000");
+    $("#find-button-homepage").fadeOut("10000");
+    //append response html to bottom of page and scroll down to it
+    $("main").append(response)
+  });
+
+
+})
+
+
+
+  $("#edit-user-form").hide();
+
+  $("#edit-user-link").on("click", function(event){
+    event.preventDefault();
+    $("#edit-user-form").fadeIn("100000");
+    $("#profile-view").hide();
+  })
+
 });
 
-  // post for register form. having trouble targeting parent div in order to bubble. for and parent div ids correspond and are in correct place. not sure what the problem is. 
+  // post for register form. having trouble targeting parent div in order to bubble. for and parent div ids correspond and are in correct place. not sure what the problem is.
 
- 
+
+
+
+

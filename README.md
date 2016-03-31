@@ -31,3 +31,6 @@ light brown = #C48150
 
 ####Link to star wars CSS color scheme (A New Hope):
 http://www.fubiz.net/en/2015/04/20/the-colors-of-star-wars-palettes-2/
+
+####Star Wars Font:
+http://www.fontspace.com/boba-fonts/star-jedi
