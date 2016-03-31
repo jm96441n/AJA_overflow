@@ -4,8 +4,10 @@
 
 <p>Asked by<%= @asker.username %></p>
 <p>Updated on<%= @question.updated_at %></p>
-<p>Comments:<%@question.comments.size%></p>
-<p>Votes:<%@question.votes.size%></p>
+<p id="comment-count">Comments:</p>
+  <p><%=@question.comments.size%></p>
+<p>Votes:</p>
+  <p id="vote-count"><%=@question.votes.size%></p>
 
 <a href="/questions/<%=@question.id%>/edit" id="up-vote-button">Up Vote</a>
 <a href="/questions/<%=@question.id%>/edit" id="down-vote-button">Down Vote</a>

@@ -23,10 +23,9 @@ get '/questions/:id/edit' do
     case params[:action]
       when "up-vote"
         added_vote = Vote.new({votable_id: @question.id, votable_type: "Question", user: current_user})
-        binding.pry
         if added_vote.save
           content_type :json
-          {votes: @question.vote_count}.to_json
+          {votes: @question.vote_count.to_s}.to_json
         else
           status 400
         end
