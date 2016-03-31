@@ -22,14 +22,21 @@ get '/questions/:id/edit' do
 
     case params[:action]
       when "up-vote"
-        added_vote = Vote.new({votable_id: @question.id, votable_type: "Question", user: current_user})
-        if added_vote.save
+        up_vote = Vote.new({votable_id: @question.id, votable_type: "Question", user: current_user, up_or_down: "up"})
+        if up_vote.save
           content_type :json
           {votes: @question.vote_count.to_s}.to_json
         else
           status 400
         end
       when "down-vote"
+        down_vote = Vote.new({votable_id: @question.id, votable_type: "Question", user: current_user, up_or_down: "down"})
+        if down_vote.save
+          content_type :json
+          {votes: @question.vote_count.to_s}.to_json
+        else
+          status 400
+        end
       when "favorite"
       when "edit"
     end
