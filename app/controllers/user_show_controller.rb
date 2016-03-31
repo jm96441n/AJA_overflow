@@ -28,11 +28,12 @@ end
 # view profile
 
 # delete profile (not currently implemented)
-delete "/users/:id" do
+get "/users/:id/delete" do
   @user = User.find_by(id: params[:id])
   @user.destroy
   sessions.clear
-  redirect '/'
+
+  erb :'/index'
 end
 
 # edit profile (not currently implemented)
