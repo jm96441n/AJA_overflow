@@ -52,11 +52,9 @@ get '/questions/:id/edit' do
         end
       when "edit"
         if current_user #&& Question.author?(@question.id, current_user.id)
-          #person clicks edit button. need to send back edit form to load in browser
-          # erb :'questions/edit'
           erb :"/questions/_edit_question", locals: {question: @question}, layout: false
         else
-          #raise error message - this person is not allowed to edit a question
+          #raise error message - this person is not allowed to edit a question. reload page with error
           redirect "/questions/<%=@question.id%>"
         end
     end
@@ -68,11 +66,11 @@ end
 
 #after user clicks to submit edits to question
 post '/questions/:id/edit' do
-  question = Question.find_by(id: params[:question_id])
-  question.update(question_text: params[:question_text])
+  @question = Question.find_by(id: params[:question_id])
+  @question.update(question_text: params[:question_text])
 
-  if question.save
-    redirect "/questions/<%=question.id%>"
+  if @question.save
+    redirect "/questions/#{@question.id}"
   else
     status 400
   end

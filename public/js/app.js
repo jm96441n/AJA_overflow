@@ -66,7 +66,7 @@ $("#edit_question_form").on("submit",function(event){
     method: 'post',
     data: editedQuestion
   }).done(function(response){
-    // response should be updated question text
+    debugger
     $("#question-header-text").text(response)
   }).fail(function(){
     //raise error
