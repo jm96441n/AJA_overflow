@@ -12,7 +12,10 @@ $("#up-vote-button").on("click",function(event){
     method: 'get',
     data: {action: "up-vote"}
   }).done(function(response){
-    debugger
+    var votes_count = response.votes
+    $("#vote-count").text(votes_count)
+  }).fail(function(){
+    //raise error
   })
 })
 
