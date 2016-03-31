@@ -61,3 +61,12 @@
   margin-top: .5em;
 }
 
+#homepage-header-photo {
+  background-image: url(http://cdn.pcwallart.com/images/yoda-star-wars-wallpaper-wallpaper-4.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
