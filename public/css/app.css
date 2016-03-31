@@ -9,4 +9,7 @@
   width: 100%;
 }
 
+#login_form {
+	display: none;
+}
 
