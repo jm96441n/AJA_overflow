@@ -1,22 +1,37 @@
 get '/login' do
 	erb :'/sessions/new'
+
 end
 
 post '/login' do
-
 	user  = User.find_by(username: params[:user][:username])
-	if user && user.authenticate(params[:user][:password])
-		session[:user_id] = user.id
-		redirect '/'
-	else
-		@errors = ['Wrong username or password, try again']
-		erb :'sessions/new'
-	end
 
+	if request.xhr?
+		if user && user.authenticate(params[:user][:password])
+			session[:user_id] = user.id
+			status 200
+
+		else
+			status 442
+			@errors = ['A correct username of password, enter your must']
+		end
+	else
+		if user && user.authenticate(params[:user][:password])
+			session[:user_id] = user.id
+			redirect '/'
+		else
+			@errors = ['A correct username of password, enter your must']
+			erb :'sessions/new'
+		end
+	end
 end
 
 get '/logout' do
-	session.clear
-	redirect '/'
+	if request.xhr?
+		session.clear
+	else
+		session.clear
+		redirect '/'
+	end
 end
 

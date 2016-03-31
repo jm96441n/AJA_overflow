@@ -18,10 +18,13 @@
       <nav>
         <ul class="menu top-bar-right">
           <% if logged_in? %>
-            <a href='/logout'><li>Logout</li></a>
-            <a href="/users/<%= @current_user.id %>"><li><%= @current_user.username %></li></a>
+            <a id='logout' href='/logout'><li>Logout</li></a>
+            <a href='/users/<%= @current_user.id %>'><li><%= @current_user.username %></li></a>
           <% else %>
-            <a href='/login'><li>Login</li></a>
+            <a id='login_link' href='/login'><li>Login</li></a>
+            <div id='login_form'>
+              <%= erb :'/sessions/_login' %>
+            </div>
             <a href='/users/new'><li>Register</li></a>
           <% end %>
         </ul>
