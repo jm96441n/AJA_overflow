@@ -38,7 +38,21 @@ $("#down-vote-button").on("click",function(event){
   })
 })
 
+$("#favorite-button").on("click",function(event){
+  event.preventDefault()
 
+  var $target = $(event.target)
+
+  $.ajax({
+    url: $target.attr('href'),
+    method: 'get',
+    data: {action: "favorite"}
+  }).done(function(response){
+    $("#favorite_count").text(response.favorite_count)
+  }).fail(function(){
+    //raise error
+  })
+})
 
 
 

@@ -42,7 +42,16 @@ get '/questions/:id/edit' do
           status 400
         end
       when "favorite"
+        favorite = Favorite.new({favoritable_id: @question.id, favoritable_type: "Question", user: current_user})
+        if favorite.save
+          favorite_count = Favorite.favorite_total(@question.id, favorite.favoritable_type)
+          content_type :json
+          {favorite_count: favorite_count}.to_json
+        else
+          status 400
+        end
       when "edit"
+        #insert logic for editing question here.
     end
   else
     erb :'questions/edit'
