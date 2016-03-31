@@ -12,8 +12,8 @@ $("#up-vote-button").on("click",function(event){
     method: 'get',
     data: {action: "up-vote"}
   }).done(function(response){
-    var votes_count = response.votes
-    $("#up-vote-count").text(votes_count)
+    $("#up-vote-count").text(response.up_votes)
+    $("composite-votes").text(response.composite_votes)
   }).fail(function(){
     //raise error
   })
@@ -29,8 +29,9 @@ $("#down-vote-button").on("click",function(event){
     method: 'get',
     data: {action: "down-vote"}
   }).done(function(response){
-    var votes_count = response.votes
-    $("#down-vote-count").text(votes_count)
+    debugger
+    $("#down-vote-count").text(response.down_votes)
+    $("composite-votes").text(response.composite_votes)
   }).fail(function(){
     //raise error
   })

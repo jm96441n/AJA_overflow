@@ -11,7 +11,7 @@
 <p>Down Votes:</p>
   <p id="down-vote-count"><%=Vote.down_votes(@question.id, "Question")%></p>
 <p>Composite Votes:</p>
-  <p id="composite-votes"><%=Vote.down_votes(@question.id, "Question")%></p>
+  <p id="composite-votes"><%=Vote.composite_votes(@question.id, "Question")%></p>
 
 <a href="/questions/<%=@question.id%>/edit" id="up-vote-button">Up Vote</a>
 <a href="/questions/<%=@question.id%>/edit" id="down-vote-button">Down Vote</a>
