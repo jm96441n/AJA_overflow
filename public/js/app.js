@@ -17,13 +17,10 @@ $(document).ready(function(){
       //raise error
     });
   });
-<<<<<<< HEAD
 
-$("#down-vote-button").on("click",function(event){
-=======
 
 $("#down-vote-button").on("click", function(event){
->>>>>>> master
+
   event.preventDefault()
 
   var $target = $(event.target)

@@ -25,6 +25,10 @@ end
 get '/questions/:id' do
   @question = Question.find_by(id: params[:id])
   @asker = User.find_by(id: @question.user_id)
+  @up_votes = Vote.up_votes(@question.id, "Question")
+  @down_votes = Vote.down_votes(@question.id, "Question")
+  @comp_votes = Vote.composite_votes(@question.id, "Question")
+  @favorites = Favorite.favorite_total(@question.id, "Question")
   erb :'questions/show'
 end
 
