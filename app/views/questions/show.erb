@@ -41,11 +41,18 @@
 <% if @question.answers.size > 0 %>
 <% @question.answers.each do |answer| %>
 <p><%= answer.answer_text %></p>
+  <% answer.comments.each do |comment| %>
+    <p><%= comment %></p>
+  <% end %>
 <% end %>
 <% end %>
 
 <h5>Your Answer</h5>
-
+  <form id="your_answer_form" method="POST" action="/answers/new">
+      <label for="your_answer">Submit an answer to this question:</label>
+      <textarea id="your_answer" name="your_answer" placeholder="type your answer here"></textarea>
+      <input type="submit" value="Submit Answer">
+  </form>
 
 
 
