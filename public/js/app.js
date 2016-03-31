@@ -18,7 +18,7 @@ $(document).ready(function(){
     });
   });
 
-    // render login form 
+    // get route for login form 
   $("#login-link").on("click", function(event){
     event.preventDefault();
 
@@ -35,7 +35,7 @@ $(document).ready(function(){
    });
 
     // post route for login form 
-  $("#user-login-form-placeholder").on("submit", "#login-form", function(event){
+  $("#form-placeholder").on("submit", "#login-form", function(event){
     event.preventDefault();
     var path = $(event.target).attr("action");
     var formData = $(event.target).serialize();
@@ -55,6 +55,7 @@ $(document).ready(function(){
     })
   })
 
+    // get route for register form
   $("#register-link").on("click", function(event){
     event.preventDefault();
     
@@ -70,10 +71,42 @@ $(document).ready(function(){
       $("#questions-list-section").fadeOut("10000");
     })
   })
+
+    // post route for register form
+  $("main").on("submit", "#register-form", function(event){
+    event.preventDefault();
+    var path = $(event.target).attr("action");
+    var formData = $(event.target).serialize();
+    
+    $.ajax({
+      url: path,
+      type: 'post',
+      data: formData,
+      dataType: 'html'
+    }).done(function(response){
+      location.reload();
+    })
+  })
+    
+  // $("#new_question_form").on("submit", function(event){
+  //   event.preventDefault();
+    
+  //   var path = $(event.target).attr("action");
+  //   var formData = $(event.target).serialize();
+
+  //   $.ajax({
+  //     url: path,
+  //     type: 'post',
+  //     data: formData,
+  //     dataType: 'html'
+  //   }).done(function(event){
+  //     alert("got this far")
+  //   })
+  // })
+  
+
 });
 
+  // post for register form. having trouble targeting parent div in order to bubble. for and parent div ids correspond and are in correct place. not sure what the problem is. 
 
-// var parsedResponse = JSON.parse(response);
-//       $("#tasks_details_aside h1").html(parsedResponse.name);
-//       $("#tasks_details_aside h3").html(parsedResponse.note);
-
+ 
