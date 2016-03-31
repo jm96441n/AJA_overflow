@@ -19,14 +19,13 @@
 }
 
 #header {
-  /*background-color: #78DF3E;*/
   background-color: #60452E;
   color: #fff;
   padding: 2rem 4rem;
 }
 
 .footer {
-  background-color: #344096;
+  background-color: #60452E;
   padding: 2rem 4rem;
   text-align: center;
   color: #fff;
