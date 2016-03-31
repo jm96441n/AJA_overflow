@@ -13,3 +13,71 @@
 	display: none;
 }
 
+
+.full-width {
+  max-width: 1400px;
+}
+
+#header {
+  background-color: #5AA0D5;
+  color: #fff;
+  padding: 2rem 4rem;
+}
+
+.footer {
+  background-color: #5AA0D5;
+  padding: 2rem 4rem;
+  text-align: center;
+  color: #fff;
+}
+.footer i {
+  font-size: 100px;
+}
+
+.footer h4 {
+  color: #fff;
+  font-size: 1em;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 2.5rem;
+  margin-bottom: 10px;
+}
+.footer p, .footer a {
+  font-weight: 300;
+  font-size: .8em;
+  color: #fff;
+}
+
+@media only screen and (min-width: 40.063em) {
+  .footer .columns:nth-child(n+2) {
+    border-left: 1px solid #b3b3b3;
+    min-height: 280px;
+  }
+}
+.footer-links {
+  list-style-type: none;
+}
+.footer-links li {
+  margin-top: .5em;
+}
+
+#homepage-header-photo {
+
+  background-image: url(http://cdn.pcwallart.com/images/yoda-star-wars-wallpaper-wallpaper-4.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+#main-area {
+  height: 100%;
+}
+
+.homepage-questions {
+  position: absolute;
+  display: inline-block;
+  height: 10%;
+  width: 10%;
+}
