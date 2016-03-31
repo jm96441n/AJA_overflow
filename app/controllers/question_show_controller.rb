@@ -50,27 +50,31 @@ get '/questions/:id/edit' do
         else
           status 400
         end
+      when "edit"
+        if current_user #&& Question.author?(@question.id, current_user.id)
+          #person clicks edit button. need to send back edit form to load in browser
+          # erb :'questions/edit'
+          erb :"/questions/_edit_question", locals: {question: @question}, layout: false
+        else
+          #raise error message - this person is not allowed to edit a question
+          redirect "/questions/<%=@question.id%>"
+        end
     end
   else
-    if current_user #&& Question.author?(@question.id, current_user.id)
-      erb :'questions/edit'
-    else
-      #raise error message - this person is not allowed to edit a question
-      redirect "/questions/<%=@question.id%>"
-    end
+    erb :'questions/edit'
+    #right now if the user doesn't send an ajax request, it will automatically load the edit quesiton page, which is not necessarily what we want, if they are favoriting something or up/down voting something
   end
 end
 
+#after user clicks to submit edits to question
 post '/questions/:id/edit' do
-  binding.pry
   question = Question.find_by(id: params[:question_id])
   question.update(question_text: params[:question_text])
 
   if question.save
-    binding.pry
+    redirect "/questions/<%=question.id%>"
   else
-
+    status 400
   end
-
 end
 

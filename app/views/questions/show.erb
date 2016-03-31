@@ -2,9 +2,10 @@
 
 <h3 id="question-header-text"><%=@question.question_text %></h3>
 
-<p>Asked by<%= @asker.username %></p>
-<p>Updated on<%= @question.updated_at %></p>
-<% if logged_in? && Question.author?(@question.id, current_user.id) %>
+<p>Asked by <%= @asker.username %></p>
+<p>Updated on <%= @question.updated_at %></p>
+
+<% if logged_in? #&& Question.author?(@question.id, current_user.id) %>
   <form id="edit_question_button" method="POST" action="/questions/<%=@question.id%>/edit">
     <input type="submit" value="Edit Question">
   </form>

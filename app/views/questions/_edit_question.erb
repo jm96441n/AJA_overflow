@@ -1,0 +1,12 @@
+<div>
+  <form id="edit_question_form" method="POST" action="/questions/<%=question.id%>/edit">
+
+    <div>
+      <label for="question-text">Edit your question below:</label>
+      <input id="question-text" type="text" name="question_text" value="<%=question.question_text%>">
+      <input type="hidden" name="question_id" value="<%=question.id%>">
+    </div>
+
+    <input id="new_question_button" type="submit" value="Submit">
+  </form>
+</div>

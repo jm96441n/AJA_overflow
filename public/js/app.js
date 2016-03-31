@@ -54,9 +54,9 @@ $("#favorite-button").on("click",function(event){
   })
 })
 
+//edit question form is different from edit question button
 $("#edit_question_form").on("submit",function(event){
   event.preventDefault()
-  debugger
 
   var $target = $(event.target)
   var editedQuestion = $target.serialize()
@@ -66,9 +66,25 @@ $("#edit_question_form").on("submit",function(event){
     method: 'post',
     data: editedQuestion
   }).done(function(response){
-    debugger
     // response should be updated question text
     $("#question-header-text").text(response)
+  }).fail(function(){
+    //raise error
+  })
+})
+
+// shows a partial with the edit question form instead of loading an edit form page
+$("#edit_question_button").on("submit",function(event){
+  event.preventDefault()
+  var $target = $(event.target)
+
+  $.ajax({
+    url: $target.attr('action'),
+    method: 'get',
+    data: {action: "edit"}
+  }).done(function(response){
+    // response should be updated question text
+    $("#question-header-text").append(response)
   }).fail(function(){
     //raise error
   })
