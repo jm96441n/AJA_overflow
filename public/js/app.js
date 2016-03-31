@@ -52,8 +52,8 @@ $(document).ready(function(){
       // $("#new_question_form").show();
       // $("#questions-list-section").show();
       location.reload();
-    })
-  })
+    });
+  });
 
     // get route for register form
   $("#register-link").on("click", function(event){
@@ -69,8 +69,8 @@ $(document).ready(function(){
       $("#form-placeholder").html(response);
       $("#new_question_form").fadeOut("10000"); 
       $("#questions-list-section").fadeOut("10000");
-    })
-  })
+    });
+  });
 
     // post route for register form
   $("main").on("submit", "#register-form", function(event){
@@ -85,24 +85,24 @@ $(document).ready(function(){
       dataType: 'html'
     }).done(function(response){
       location.reload();
-    })
-  })
+    });
+  });
     
-  // $("#new_question_form").on("submit", function(event){
-  //   event.preventDefault();
-    
-  //   var path = $(event.target).attr("action");
-  //   var formData = $(event.target).serialize();
+  $("#new_question_form").on("submit", function(event){
+    event.preventDefault();
 
-  //   $.ajax({
-  //     url: path,
-  //     type: 'post',
-  //     data: formData,
-  //     dataType: 'html'
-  //   }).done(function(event){
-  //     alert("got this far")
-  //   })
-  // })
+    var path = $(event.target).attr("action");
+    var formData = $(event.target).serialize();
+
+    $.ajax({
+      url: path,
+      type: 'post',
+      data: formData,
+      dataType: 'html'
+    }).done(function(event){
+      alert("got this far");
+    });
+  });
   
 
 });

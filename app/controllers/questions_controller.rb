@@ -12,7 +12,14 @@ post '/questions/new' do
   @question.new(question_text: params[:question_text], user_id: session[:user_id])
 
   if @question.save
-    redirect '/index'
+    if request.xhr?
+      content_type :json
+      {question_text: params[:question_text], user_id: session[:user_id]}.to_json
+
+      erb :'/index', {layout: false}
+    else
+      redirect '/index'
+    end
   else
     @question.errors.full_messages
   end
