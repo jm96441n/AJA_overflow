@@ -1,5 +1,13 @@
 <main>
 
+<div>
+  <%= erb :'users/_edit', locals: {user: @user}, layout: false %>
+</div>
+
+<% if logged_in? %>
+  <a id="edit-user-link" href="/users/<%= @user.id %>/edit">edit profile</a>
+<% end %>
+
 <div class="row large-5 columns" id="profile-view">
   <h3><%= @user.username %></h3>
   <p>Member since : <%=@user.created_at%></p>

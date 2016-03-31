@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     // up vote button on question page
-  $("#up-vote-button").on("click",function(event){
+  $("#up-vote-button").on("click", function(event){
     event.preventDefault();
 
     var $target = $(event.target);
@@ -18,7 +18,7 @@ $(document).ready(function(){
     });
   });
     
-$("#down-vote-button").on("click",function(event){
+$("#down-vote-button").on("click", function(event){
   event.preventDefault()
 
   var $target = $(event.target)
@@ -36,7 +36,7 @@ $("#down-vote-button").on("click",function(event){
   })
 })
 
-$("#favorite-button").on("click",function(event){
+$("#favorite-button").on("click", function(event){
   event.preventDefault()
 
   var $target = $(event.target)
@@ -53,7 +53,7 @@ $("#favorite-button").on("click",function(event){
 })
 
 //edit question form is different from edit question button
-$("#edit_question_form").on("submit",function(event){
+$("#edit_question_form").on("submit", function(event){
   event.preventDefault()
 
   var $target = $(event.target)
@@ -71,10 +71,10 @@ $("#edit_question_form").on("submit",function(event){
 })
 
 // shows a partial with the edit question form instead of loading an edit form page
-$("#edit_question_button").on("submit",function(event){
+$("#edit_question_button").on("submit", function(event){
   event.preventDefault()
   var $target = $(event.target)
-
+ 
   $.ajax({
     url: $target.attr('action'),
     method: 'get',
@@ -87,7 +87,7 @@ $("#edit_question_button").on("submit",function(event){
   })
 })
 
-$("#your_answer_form").on("submit",function(event){
+$("#your_answer_form").on("submit", function(event){
   event.preventDefault()
   var $target = $(event.target)
   var answerData = $target.serialize()
@@ -194,6 +194,14 @@ $('.top-bar-right').on('click','#logout', function(event){
       $("#new_question_form").load("/index #new_question_form");
     });
   });
+
+  $("#edit-user-form").hide();
+
+  $("#edit-user-link").on("click", function(event){
+    event.preventDefault();
+    $("#edit-user-form").fadeIn("100000");
+    $("#profile-view").hide();
+  })
 
 });
 
