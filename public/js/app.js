@@ -239,7 +239,27 @@ $("#ask-button").on("submit",function(){
     event.preventDefault();
     $("#edit-user-form").fadeIn("100000");
     $("#profile-view").hide();
-  })
+  });
+
+  // $("#delete-user-link").on("click", function(event){
+  //   event.preventDefault();
+  //   confirm("Are you SUUUUUURE that you want to delete your profile????")
+  //   debugger;
+
+  //   if (confirm) {
+  //     $.ajax({
+  //       url: $(event.target).attr("href"),
+  //       type: "get"
+  //     }).done({
+        
+  //     })
+  //   } 
+
+  //   else {
+  //     alert("It takes strength to resist the dark side. Only the WEAK embrace it. It is more powerful than you know. And those who oppose it are stronger than youll ever be!!");
+  //   }
+
+  // })
 
 });
 
