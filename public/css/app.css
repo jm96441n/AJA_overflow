@@ -24,6 +24,15 @@
   padding: 2rem 4rem;
 }
 
+@font-face {
+  font-family: "spaceage";
+  src: url("fonts/spaceage.ttf") ;
+}
+
+.top-bar-title {
+  font-family: "spaceage";
+}
+
 .footer {
   background-color: #60452E;
   padding: 2rem 4rem;
