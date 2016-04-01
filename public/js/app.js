@@ -200,36 +200,27 @@ $('.top-bar-right').on('click','#logout', function(event){
 // TWO HOMEPAGE BUTTONS BELOW ARE NOT COMPLETE
 $("#find-questions-button").on("submit",function(){
   event.preventDefault();
-
   $.ajax({
     url: $(event.target).attr("action"),
-    type: 'post',
+    type: 'get',
   }).done(function(response){
-
-      $("#ask-button-homepage").fadeOut("10000");
+    $("#ask-button-homepage").fadeOut("10000");
     $("#find-button-homepage").fadeOut("10000");
-    //append response html to bottom of page and scroll down to it
+    $("main").html(response)
   });
-
-
-})
+});
 
 $("#ask-button").on("submit",function(){
   event.preventDefault();
-
   $.ajax({
     url: $(event.target).attr("action"),
-    type: 'post',
+    type: 'get',
   }).done(function(response){
-
     $("#ask-button-homepage").fadeOut("10000");
     $("#find-button-homepage").fadeOut("10000");
-    //append response html to bottom of page and scroll down to it
-    $("main").append(response)
+    $("main").html(response)
   });
-
-
-})
+});
 
 
 
@@ -251,9 +242,9 @@ $("#ask-button").on("submit",function(){
   //       url: $(event.target).attr("href"),
   //       type: "get"
   //     }).done({
-        
+
   //     })
-  //   } 
+  //   }
 
   //   else {
   //     alert("It takes strength to resist the dark side. Only the WEAK embrace it. It is more powerful than you know. And those who oppose it are stronger than youll ever be!!");

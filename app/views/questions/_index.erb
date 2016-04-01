@@ -1,0 +1,18 @@
+<section id="questions-list-section">
+    <% questions.each do |question| %>
+  <div class="row">
+    <div class="small-6 large-8 columns">...
+      <p>
+      <a href="/questions/<%= question.id %>"><%= question.question_text %></a>
+      </p>
+    </div>
+
+    <div class="small-6 large-8 columns">
+        <%= question.view_count %>
+    </div>
+  </div>
+    <% end %>
+</section>
+  <div id="form-placeholder"></div>
+  <div id="register-form-placeholder"> </div>
+  <div id="form-placeholder-background"></div>
