@@ -28,10 +28,11 @@
         <div id='login_form'>
           <%= erb :'/sessions/_login' %>
         </div>
-            <a class='log-reg-links' id='login_link' href='/login'><div class='link-class'><li>Login</li></div></a>
+        <div id="log-reg-links">
+            <a  id='login_link' href='/login'><div class='link-class'><li>Login</li></div></a>
 
-            <a class='log-reg-links' id="register-link" href='/users/new'><div class='link-class'><li>Register</li></div></a>
-
+            <a  id="register-link" href='/users/new'><div class='link-class'><li>Register</li></div></a>
+        </div>
           <% end %>
         </ul>
       </nav>
