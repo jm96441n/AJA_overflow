@@ -247,6 +247,15 @@
 color: #555E5B;
 }
 
+.user_buttons {
+  background-color: #60452E;
+  color: white;
+}
+
+.user_buttons:hover {
+  color: green;
+}
+
 #ask_a_q {
   text-align: center;
   font-size: 1.6rem;
