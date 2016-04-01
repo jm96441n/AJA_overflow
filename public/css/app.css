@@ -223,8 +223,6 @@
 .login-div {
   display: inline-block;
   margin-right: 0.2rem;
-
-
 }
 
 #submit-button {
@@ -247,6 +245,10 @@
 color: #555E5B;
 }
 
+#answer-comment {
+  margin-left: 20px;
+}
+
 .user_buttons {
   background-color: #60452E;
   color: white;
@@ -259,11 +261,35 @@ color: #555E5B;
 #ask_a_q {
   text-align: center;
   font-size: 1.6rem;
-
-
 }
 
 #q_link {
   color: black;
   text-decoration: underline;
+}
+
+#question-page-asker-img {
+  height: 100px;
+  width: auto;
+}
+
+#comments-section {
+  margin-left: 10%;
+}
+
+.spacing {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+#answer-wrapper {
+  background-color: rgba(255,255,255,0.5);
+  height: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom:10px;
+}
+
+#answers-section {
+  border-top: solid black 2px;
 }
