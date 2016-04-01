@@ -18,4 +18,12 @@ class Question < ActiveRecord::Base
     question.user_id == user_id
   end
 
+  def ans_count
+    self.answers.size
+  end
+
+  # def view_count
+  #   (0..50).rand
+  # end
+
 end

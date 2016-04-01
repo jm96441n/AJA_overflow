@@ -191,7 +191,22 @@
 
 
 #questions-list-section {
+  background-image: url('http://editor.michelsonrealty.com/generator/tmp/07k4a3jq.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 2rem 0rem 4rem 0rem;
 
+}
+
+#register-bg {
+   background-image: url('http://editor.michelsonrealty.com/generator/tmp/07k4a3jq.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 2rem 0rem 4rem 0rem;
+}
+
+.top-bar-right {
+  background-color: #60452E
 }
 
 .link-class {
@@ -200,6 +215,7 @@
   border: 2px solid black;
   text-align: center;
   color: black;
+  border-radius: 10%;
 }
 
 .login-div {
@@ -219,4 +235,12 @@
 
 #login {
   background-color: #60452E;
+}
+
+.titles {
+  text-align: center;
+}
+
+.questions {
+color: #555E5B;
 }
