@@ -191,11 +191,18 @@
 
 
 #questions-list-section {
-  background-image: url('http://img1.goodfon.su/wallpaper/big/d/b5/yoda-magistr-dzheday-yoda-jedi.jpg');
+  background-image: url('http://editor.michelsonrealty.com/generator/tmp/07k4a3jq.png');
   background-repeat: no-repeat;
   background-position: right;
-  margin: 2rem 0rem 4rem 0rem;
+  padding: 2rem 0rem 4rem 0rem;
 
+}
+
+#register-bg {
+   background-image: url('http://editor.michelsonrealty.com/generator/tmp/07k4a3jq.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 2rem 0rem 4rem 0rem;
 }
 
 .top-bar-right {
@@ -228,4 +235,12 @@
 
 #login {
   background-color: #60452E;
+}
+
+.titles {
+  text-align: center;
+}
+
+.questions {
+color: #555E5B;
 }
