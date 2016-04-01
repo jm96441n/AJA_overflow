@@ -1,6 +1,20 @@
 get '/questions/new' do
 
-  erb :"questions/new"
+  if request.xhr?
+    erb :"/questions/_new_question", layout: false
+  else
+    erb :"/questions/new"
+  end
+end
+
+get '/questions/index' do
+  @questions = Question.all
+
+  if request.xhr?
+    erb :"/questions/_index", locals: {questions: @questions}, layout: false
+  else
+    erb :"/questions/index"
+  end
 end
 
 
