@@ -35,7 +35,7 @@
     <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button">Down Vote</a></p>
     <p><a href="/questions/<%=@question.id%>/edit" id="favorite-button">Favorite</a></p>
   </div>
-  <div class='large-10 columns'> 
+  <div class='large-10 columns'>
 
 <h3 id="question-header-text"><%=@question.question_text %></h3>
     <p class='quest_info'>Asked by <%= @asker.username %></p>
@@ -47,11 +47,24 @@
 
 <h5>Comments</h5>
 
+<div id="comments-section"
 <% @question.comments.each do |comment| %>
 <p><%= comment.comment_text %> by <%= User.find_by(id: comment.user_id).username%> on <%=comment.created_at %></p>
 <% end %>
+</div>
 
-<%= erb :"/answers/_answers_list", locals: {question: @question}, layout: false %>
+<h5>Answers</h5>
+
+<div id="answers-section">
+<% if @answers.size > 0 %>
+<% @answers.each do |answer| %>
+<p><%= answer.answer_text %></p>
+  <% answer.comments.each do |comment| %>
+    <p><%= comment.comment_text %></p>
+  <% end %>
+<% end %>
+<% end %>
+</div>
 
 <% if logged_in? %>
 <h5>Your Answer</h5>

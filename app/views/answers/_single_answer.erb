@@ -1,8 +1,4 @@
-<% if question.answers %>
-<% question.answers.each do |answer| %>
 <p><%= answer.answer_text %></p>
   <% answer.comments.each do |comment| %>
     <p><%= comment.comment_text %></p>
   <% end %>
-<% end %>
-<% end %>

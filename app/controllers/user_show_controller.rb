@@ -1,7 +1,7 @@
 get "/users/new" do
   if request.xhr?
     erb :'/users/_new', {layout: false}
-  else 
+  else
     erb :'/users/new'
   end
 end
@@ -15,7 +15,7 @@ post '/users' do
       content_type :json
       {username: params[:user][:username], password: params[:user][:password]}.to_json
 
-      erb :'/index', {layout: false} 
+      erb :'/index', {layout: false}
     else
   		session[:user_id] = user.id
   		redirect "/users/#{session[:user_id]}"
