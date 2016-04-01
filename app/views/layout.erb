@@ -16,16 +16,21 @@
       <a id='home_link' href='/'><h1 class="top-bar-title">Yoda Know</h1></a>
       <nav>
         <ul class="menu top-bar-right">
+
           <% if logged_in? %>
-            <a id='logout' href='/logout'><li>Logout</li></a>
-            <a href='/users/<%= @current_user.id %>'><li><%= @current_user.username %></li></a>
+            <a id='logout' href='/logout'><div class='link-class'><li>Logout</li></div></a>
+
+
+            <a href='/users/<%= @current_user.id %>'><div class='link-class'><li><%= @current_user.username %></li></div></a>
+
           <% else %>
 
-            <a id='login_link' href='/login'><li>Login</li></a>
-            <div id='login_form'>
-              <%= erb :'/sessions/_login' %>
-            </div>
-            <a id="register-link" href='/users/new'><li>Register</li></a>
+        <div id='login_form'>
+          <%= erb :'/sessions/_login' %>
+        </div>
+            <a class='log-reg-links' id='login_link' href='/login'><div class='link-class'><li>Login</li></div></a>
+
+            <a class='log-reg-links' id="register-link" href='/users/new'><div class='link-class'><li>Register</li></div></a>
 
           <% end %>
         </ul>

@@ -108,6 +108,7 @@ $("#your_answer_form").on("submit", function(event){
 $('.top-bar-right').on('click','#login_link', function(event){
   event.preventDefault()
   $('#login_form').fadeIn(1000)
+  $('.log-reg-links').fadeOut(1000)
 })
 
 $('#login').on('submit', function(event){
@@ -142,20 +143,22 @@ $('.top-bar-right').on('click','#logout', function(event){
 
     // get route for register form
   $("#register-link").on("click", function(event){
-    event.preventDefault();
-    $("#login_form").fadeOut();
+    if ($('#questions-list-section').size() > 0) {
+      event.preventDefault();
+      $("#login_form").fadeOut();
 
-    var path = $("a[href='/users/new']").attr("href");
+      var path = $("a[href='/users/new']").attr("href");
 
-    $.ajax({
-      url: path,
-      type: "get"
-    })
-    .done(function(response){
-      $("#form-placeholder").html(response).fadeIn("100");
-      $("#new_question_form").fadeOut("10000");
-      $("#questions-list-section").fadeOut("10000");
-    });
+      $.ajax({
+        url: path,
+        type: "get"
+      })
+      .done(function(response){
+        $("#form-placeholder").html(response).fadeIn("100");
+        $("#new_question_form").fadeOut("10000");
+        $("#questions-list-section").fadeOut("10000");
+      });
+    }
   });
 
     // post route for register form
@@ -207,6 +210,7 @@ $("#find-questions-button").on("submit",function(){
     $("#ask-button-homepage").fadeOut("10000");
     $("#find-button-homepage").fadeOut("10000");
     $("main").html(response)
+    $('main').css('height','auto')
   });
 });
 
@@ -221,6 +225,7 @@ $("#ask-button").on("submit",function(){
     $("main").html(response)
   });
 });
+
 
 
 

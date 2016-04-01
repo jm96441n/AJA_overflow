@@ -180,7 +180,34 @@
 }
 
 
+#questions-list-section {
+
+}
+
+.link-class {
+  background-color: #78DF3E;
+  padding: 0.3rem;
+  border: 2px solid black;
+  text-align: center;
+  color: black;
+}
+
+.login-div {
+  display: inline-block;
+  margin-right: 0.2rem;
 
 
+}
 
+#submit-button {
+  color: black;
+}
 
+#login-form {
+  display: inline-block;
+}
+
+#login {
+  background-color: #60452E;
+
+}
