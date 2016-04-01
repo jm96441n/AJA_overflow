@@ -270,3 +270,7 @@ color: #555E5B;
   text-decoration: underline;
 }
 
+#question-page-asker-img {
+  height: 100px;
+  width: auto;
+}

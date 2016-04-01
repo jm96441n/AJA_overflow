@@ -38,8 +38,11 @@
   <div class='large-10 columns'>
 
 <h3 id="question-header-text"><%=@question.question_text %></h3>
-    <p class='quest_info'>Asked by <%= @asker.username %></p>
-    <p class='quest_info'>Updated on <%= @question.updated_at %></p>
+  <div id="row">
+    <img src="/images/starwars_man.png" id="question-page-asker-img" class="large-2 columns">
+    <p class='quest_info large-5 columns'>Asked by <%= @asker.username %></p>
+    <p class='quest_info large-5 columns'>Updated on <%= @question.updated_at %></p>
+  </div>
   </div>
 </div>
 
