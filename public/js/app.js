@@ -99,8 +99,9 @@ $("#your_answer_form").on("submit", function(event){
     data: answerData
   }).done(function(response){
     $("#answers-section").append(response)
+
   }).fail(function(){
-    //raise error
+    alert('Something went wrong. Try again you must')
   })
 })
 
