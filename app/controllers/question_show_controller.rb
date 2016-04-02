@@ -25,7 +25,6 @@ post '/questions/new' do
     if request.xhr?
       content_type :json
       {question_text: params[:question_text], user_id: session[:user_id]}.to_json
-
       erb :'/index', {layout: false}
     else
       redirect '/index'
@@ -43,6 +42,7 @@ get '/questions/:id' do
   @down_votes = Vote.down_votes(@question.id, "Question")
   @comp_votes = Vote.composite_votes(@question.id, "Question")
   @favorites = Favorite.favorite_total(@question.id, "Question")
+  @answers = @question.answers
   erb :'questions/show'
 end
 
@@ -58,7 +58,6 @@ get '/questions/:id/edit' do
 
   @question = Question.find_by(id: params[:id])
   @asker = User.find_by(id: @question.user_id)
-
   if request.xhr?
 
     case params[:action]

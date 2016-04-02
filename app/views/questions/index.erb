@@ -18,13 +18,13 @@
 <section id="questions-list-section">
     <% @questions.each do |question| %>
   <div class="row">
-    <div class="small-4 large-6 columns">
+    <div class="small-2">
       <p>
       <a href="/questions/<%= question.id %>"><%= question.question_text %></a>
       </p>
     </div>
 
-    <div class="small-2 large-4 columns">
+    <div class="small-8 ">
         <%= question.view_count %>
     </div>
   </div>
@@ -33,3 +33,7 @@
   <div id="form-placeholder"></div>
   <div id="register-form-placeholder"> </div>
   <div id="form-placeholder-background"></div>
+
+
+<!-- large-8 columns -->
+<!-- large-8 columns -->

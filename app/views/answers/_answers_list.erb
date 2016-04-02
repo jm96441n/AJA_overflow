@@ -1,6 +1,4 @@
-<div id="answers-section">
-<h5>Answers</h5>
-<% if question.answers.size > 0 %>
+<% if question.answers %>
 <% question.answers.each do |answer| %>
 <p><%= answer.answer_text %></p>
   <% answer.comments.each do |comment| %>
@@ -8,4 +6,3 @@
   <% end %>
 <% end %>
 <% end %>
-</div>

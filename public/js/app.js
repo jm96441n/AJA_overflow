@@ -5,14 +5,15 @@ $(document).ready(function(){
     event.preventDefault();
 
     var $target = $(event.target);
-
     $.ajax({
-      url: $target.attr('href'),
+      url: $target.parent().attr('href'),
       method: 'get',
       data: {action: "up-vote"}
     }).done(function(response){
-      var votes_count = response.votes;
-      $("#vote-count").text(votes_count);
+      var votesCount = response.up_votes;
+      var allVotes = response.composite_votes
+      $("#up-vote-count").text(votesCount);
+      $("#composite-votes").text(allVotes);
     }).fail(function(){
       //raise error
     });
@@ -26,7 +27,7 @@ $("#down-vote-button").on("click", function(event){
   var $target = $(event.target)
 
   $.ajax({
-    url: $target.attr('href'),
+    url: $target.parent().attr('href'),
     method: 'get',
     data: {action: "down-vote"}
   }).done(function(response){
@@ -44,7 +45,7 @@ $("#favorite-button").on("click", function(event){
   var $target = $(event.target)
 
   $.ajax({
-    url: $target.attr('href'),
+    url: $target.parent().attr('href'),
     method: 'get',
     data: {action: "favorite"}
   }).done(function(response){
@@ -99,16 +100,19 @@ $("#your_answer_form").on("submit", function(event){
     data: answerData
   }).done(function(response){
     $("#answers-section").append(response)
+
   }).fail(function(){
-    //raise error
+    alert('Something went wrong. Try again you must')
   })
 })
 
 
 $('.top-bar-right').on('click','#login_link', function(event){
   event.preventDefault()
-  $('#login_form').fadeIn(1000)
-  $('.log-reg-links').fadeOut(1000)
+  $('#log-reg-links').fadeOut(1000, function(){
+     $('#login_form').fadeIn(1000)
+  })
+
 })
 
 $('#login').on('submit', function(event){
@@ -162,24 +166,24 @@ $('.top-bar-right').on('click','#logout', function(event){
   });
 
     // post route for register form
-  $("main").on("submit", "#register-form", function(event){
-    event.preventDefault();
-    var path = $(event.target).attr("action");
-    var formData = $(event.target).serialize();
+  // $("main").on("submit", "#register-form", function(event){
+  //   event.preventDefault();
+  //   var path = $(event.target).attr("action");
+  //   var formData = $(event.target).serialize();
 
-    $.ajax({
-      url: path,
-      type: 'post',
-      data: formData,
-      dataType: 'html'
-    }).done(function(response){
-      $(".top-bar-right").load("/index .top-bar-right");
-      $("#register-form").fadeOut("10000");
-      $("#new_question_form").fadeIn("10000");
-      $("#questions-list-section").fadeIn("10000");
-      $("body").scrollTop(0);
-    });
-  });
+  //   $.ajax({
+  //     url: path,
+  //     type: 'post',
+  //     data: formData,
+  //     dataType: 'html'
+  //   }).done(function(response){
+  //     $(".top-bar-right").load("/index .top-bar-right");
+  //     $("#register-form").fadeOut("10000");
+  //     $("#new_question_form").fadeIn("10000");
+  //     $("#questions-list-section").fadeIn("10000");
+  //     $("body").scrollTop(0);
+  //   });
+  // });
 
   $("#new_question_form").on("submit", function(event){
     event.preventDefault();

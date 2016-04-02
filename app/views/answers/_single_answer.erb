@@ -1,0 +1,4 @@
+<p><%= answer.answer_text %></p>
+  <% answer.comments.each do |comment| %>
+    <p id="answer-comment"><%= comment.comment_text %></p>
+  <% end %>

@@ -1,5 +1,30 @@
 
 <div id='ask_background'>
+
+
+<div class='row spacing'>
+  <a href="/">Return to questions page</a>
+</div>
+
+
+<div class='row'>
+  <div class='small-1 columns' id="question-action-buttons">
+    <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button"><img src="/images/up-arrow.png" class="vote-button"></a></p>
+    <p id="composite-votes"><%= @comp_votes %></p>
+    <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button"><img src="/images/down-arrow.png" class="vote-button"></a></p>
+    <p><a href="/questions/<%=@question.id%>/edit" id="favorite-button"><img src="/images/star.png" class="vote-button"></a></p>
+  </div>
+  <div class='large-11 columns'>
+
+<h3 id="question-header-text"><%=@question.question_text %></h3>
+  <div id="row">
+    <img src="/images/starwars_man.png" id="question-page-asker-img" class="large-2 columns">
+    <p class='quest_info large-10 columns'>Asked by <a href="/users/<%=@asker.id%>"><%= @asker.username %></a><br>Updated on <%= @question.updated_at %></p>
+  </div>
+  </div>
+</div>
+
+
 <div class='row'>
   <div id="question-stats">
     <div class='large-2 columns' >
@@ -29,29 +54,47 @@
 </div>
 
 
-<div class='row'>
-  <div class='small-2 columns' id="question-action-buttons">
-    <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button"><img src='http://imgur.com/uPdxhgO'></a></p>
-    <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button">Down Vote</a></p>
-    <p><a href="/questions/<%=@question.id%>/edit" id="favorite-button">Favorite</a></p>
-  </div>
-  <div class='large-10 columns'> 
 
-<h3 id="question-header-text"><%=@question.question_text %></h3>
-    <p class='quest_info'>Asked by <%= @asker.username %></p>
-    <p class='quest_info'>Updated on <%= @question.updated_at %></p>
-  </div>
+<div id="comments-section"
+  <h5>Comments</h5>
+  <% @question.comments.each do |comment| %>
+  <p><%= comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
+  <% end %>
 </div>
 
 
 
-<h5>Comments</h5>
 
-<% @question.comments.each do |comment| %>
-<p><%= comment.comment_text %> by <%= User.find_by(id: comment.user_id).username%> on <%=comment.created_at %></p>
+  <h5>Answers</h5>
+<div id="answers-section">
+
+<% if @answers %>
+<% @answers.each do |answer| %>
+
+<div id="answer-wrapper">
+  <div class="row">
+    <div class='small-2 columns' id="question-action-buttons">
+      <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button"><img src="/images/up-arrow.png" class="vote-button"></a></p>
+      <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button"><img src="/images/down-arrow.png" class="vote-button"></a></p>
+    </div>
+    <div class='small-10 columns'>
+      <p><%= answer.answer_text %></p>
+    </div>
+  </div>
+  <div class="row">
+    <p class="small-7 columns"></p>
+    <img src="/images/c3po.jpg" id="question-page-asker-img" class="large-2 columns" >
+    <p class="large-2 columns"><a href="/users/<%=answer.user.id%>"><%= answer.user.username %></a></p>
+    <p class="large-1 columns"></p>
+  </div>
+</div>
+  <% answer.comments.each do |comment| %>
+    <p id="answer-comment"><%=comment.comment_text %> by <%= User.find_by(id: comment.user_id).username%> on <%=comment.created_at %></p>
+  <% end %>
+  <p>Add a comment</p>
 <% end %>
-
-<%= erb :"/answers/_answers_list", locals: {question: @question}, layout: false %>
+<% end %>
+</div>
 
 <% if logged_in? %>
 <h5>Your Answer</h5>
@@ -59,7 +102,7 @@
       <label for="your_answer">Submit an answer to this question:</label>
       <textarea id="your_answer" name="answer[answer_text]" placeholder="type your answer here"></textarea>
       <input type="hidden" name="answer[user_id]" value="<%=current_user.id%>">
-      <input type="hidden" name="answer[question_id]" value="<%=current_user.id%>">
+      <input type="hidden" name="answer[question_id]" value="<%=@question.id%>">
       <input type="submit" value="Submit Answer">
   </form>
 <% end %>
