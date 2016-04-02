@@ -229,10 +229,7 @@ $("#ask-button").on("submit",function(){
     $("main").html(response)
   });
 });
-
-
-
-
+    //hide edit user form on user show page when page loads
   $("#edit-user-form").hide();
 
   $("#edit-user-link").on("click", function(event){
@@ -241,25 +238,39 @@ $("#ask-button").on("submit",function(){
     $("#profile-view").hide();
   });
 
-  // $("#delete-user-link").on("click", function(event){
-  //   event.preventDefault();
-  //   confirm("Are you SUUUUUURE that you want to delete your profile????")
-  //   debugger;
+    //hide tabs on user show page when document loads
+  // $("#user-questions-tab-data").hide(); 
+  $("#user-answers-tab-data").hide();
+  $("#user-history-tab-data").hide();
+  $("#user-favorites-tab-data").hide();
 
-  //   if (confirm) {
-  //     $.ajax({
-  //       url: $(event.target).attr("href"),
-  //       type: "get"
-  //     }).done({
+  $("#user-question-tab-link").on("click", function(event){
+    $("#user-questions-tab-data").show();
+    $("#user-answers-tab-data").hide();
+    $("#user-history-tab-data").hide();
+    $("#user-favorites-tab-data").hide();
+  })
 
-  //     })
-  //   }
+  $("#user-answers-questions-tab-link").on("click", function(event){
+    $("#user-answers-tab-data").show();
+    $("#user-questions-tab-data").hide();
+    $("#user-history-tab-data").hide();
+    $("#user-favorites-tab-data").hide();
+  })
 
-  //   else {
-  //     alert("It takes strength to resist the dark side. Only the WEAK embrace it. It is more powerful than you know. And those who oppose it are stronger than youll ever be!!");
-  //   }
+  $("#user-history-questions-tab-link").on("click", function(event){
+    $("#user-history-tab-data").show();
+    $("#user-answers-tab-data").hide();
+    $("#user-questions-tab-data").hide();
+    $("#user-favorites-tab-data").hide();
+  })
 
-  // })
+  $("#user-favorites-questions-tab-link").on("click", function(event){
+    $("#user-favorites-tab-data").show();
+    $("#user-history-tab-data").hide();
+    $("#user-answers-tab-data").hide();
+    $("#user-questions-tab-data").hide();
+  })
 
 });
 

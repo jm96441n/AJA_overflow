@@ -1,45 +1,53 @@
-<main>
-
+<main id="user_show_background">
 <div>
   <%= erb :'users/_edit', locals: {user: @user}, layout: false %>
 </div>
 
-<% if logged_in? %>
-  <a id="edit-user-link" href="/users/<%= @user.id %>/edit">edit profile</a>
-<% end %>
-
-<% if logged_in? %>
-  <a id="delete-user-link" href="/users/<%= @user.id %>/delete">delete profile</a>
-<% end %>
-
-<div class="row large-5 columns" id="profile-view">
-  <h3><%= @user.username %></h3>
-  <p>Member since : <%=@user.created_at%></p>
-  <img id = "profile-pic" src = "http://blog.on.com/wp-content/uploads/2014/01/profile-pic.jpg">
-  <p>Number of questions asked: <%= @user.questions.size %></p>
-  <p>Number of answers given: <%= @user.answers.size %></p>
-</div>
-
 <div>
+  <div class="row large-5 columns" id="profile-view">
+    <div id="tab-links">
+      <a id="user-question-tab-link">questions</a>
+      <a id="user-answers-questions-tab-link">answers</a>
+      <a id="user-history-questions-tab-link">history</a>
+      <a id="user-favorites-questions-tab-link">favorites</a>
+    </div>
+  <img id = "profile-pic" src = "http://blog.on.com/wp-content/uploads/2014/01/profile-pic.jpg">
 
-<div class="list-of-things row large-5 columns">
-  <p>Questions Asked:</p>
-  <% @user.questions.each do |question|%>
-  <p><%= question.question_text %></p>
-  <%end%>
-</div>
+    <h3><%= @user.username %></h3>
+    <div id="edit-delete-user-links">
+    <% if logged_in? %>
+      <a id="edit-user-link" href="/users/<%= @user.id %>/edit">edit profile</a>
+    <% end %>
 
-<div class="list-of-things row large-5 columns">
-  <p>Answers Given:</p>
-  <% @user.answers.each do |answer|%>
-  <p><%= answer.answer_text %></p>
-  <%end%>
-</div>
+    <% if logged_in? %>
+      <a id="delete-user-link" href="/users/<%= @user.id %>/delete">delete profile</a>
+    <% end %>
+    </div>
 
-<div id="delete-user-link" class="row large-5 columns" >
-  
+    <div id="user-questions-tab-data" class="list-of-things row large-5 columns">
+      <p>Questions Asked:</p>
+      <% @user.questions.each do |question|%>
+      <p><%= question.question_text %></p>
+      <%end%>
+    </div>
 
-</div>
+    <div id="user-answers-tab-data" class="list-of-things row large-5 columns">
+      <p>Answers Given:</p>
+      <% @user.answers.each do |answer|%>
+      <p><%= answer.answer_text %></p>
+      <%end%>
+    </div>
 
+    <div id="user-history-tab-data" class="list-of-things row large-5 columns">
+      <p>Answers Given:</p>
+      <p>Member since : <%=@user.created_at%></p>
+      <a>Number of questions asked: <%= @user.questions.size %></p>
+      <p>Number of answers given: <%= @user.answers.size %></p>
+    </div>
 
+    <div id="user-favorites-tab-data" class="list-of-things row large-5 columns">
+      <p>Favorites:</p>
+      <p><%= @user.favorites %></p>
+    </div>
+  </div>
 </main>
