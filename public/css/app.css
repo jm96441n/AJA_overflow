@@ -260,7 +260,7 @@ display: inline-block;
 #new-question-area {
   top: 30%;
   left: 20%;
-  position: absolute;
+  position: fixed;
   display: block;
   height: 10%;
   width: 100%;
@@ -395,4 +395,9 @@ color: #555E5B;
 #q_button {
   text-align: left;
   padding-left: 29%
+}
+
+#logout-text {
+  display: none;
+  background: #60452E;
 }
