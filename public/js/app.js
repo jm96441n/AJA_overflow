@@ -167,26 +167,6 @@ $('.top-bar-right').on('click','#logout', function(event){
     }
   });
 
-    // post route for register form
-  // $("main").on("submit", "#register-form", function(event){
-  //   event.preventDefault();
-  //   var path = $(event.target).attr("action");
-  //   var formData = $(event.target).serialize();
-
-  //   $.ajax({
-  //     url: path,
-  //     type: 'post',
-  //     data: formData,
-  //     dataType: 'html'
-  //   }).done(function(response){
-  //     $(".top-bar-right").load("/index .top-bar-right");
-  //     $("#register-form").fadeOut("10000");
-  //     $("#new_question_form").fadeIn("10000");
-  //     $("#questions-list-section").fadeIn("10000");
-  //     $("body").scrollTop(0);
-  //   });
-  // });
-
   $("#new_question_form").on("submit", function(event){
     event.preventDefault();
 
@@ -202,9 +182,6 @@ $('.top-bar-right').on('click','#logout', function(event){
       $("#new_question_form").load("/index #new_question_form");
     });
   });
-
-
-
 
 // TWO HOMEPAGE BUTTONS BELOW ARE NOT COMPLETE
 $("#find-questions-button").on("submit",function(){
@@ -274,7 +251,16 @@ $("#ask-button").on("submit",function(){
     $("#user-questions-tab-data").hide();
   })
 
+  $("#profile-pic").mouseenter(function(){
+    $("#profile-pic").css("opacity", "0.4")
+  })
+
+  $("#profile-pic").mouseleave(function(){
+    $("#profile-pic").css("opacity", "10")
+  })
+
 });
+  
 
   // post for register form. having trouble targeting parent div in order to bubble. for and parent div ids correspond and are in correct place. not sure what the problem is.
 

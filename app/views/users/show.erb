@@ -24,6 +24,7 @@
 
     <div id="user-questions-tab-data" class="list-of-things row large-5 columns">
       <p>Questions Asked:</p>
+
       <% @user.questions.each do |question|%>
       <a href="/questions/<%= question.id %>"> <p> <%= question.question_text %> </p> </a>
       <%end%>
@@ -31,21 +32,24 @@
 
     <div id="user-answers-tab-data" class="list-of-things row large-5 columns">
       <p>Answers Given:</p>
+
       <% @user.answers.each do |answer|%>
-      <p><%= answer.answer_text %></p>
+      <a href="/answers/<%= answer.id %>"> <p><%= answer.answer_text %></p> </a>
       <%end%>
     </div>
 
     <div id="user-history-tab-data" class="list-of-things row large-5 columns">
       <p>Answers Given:</p>
       <p>Member since : <%=@user.created_at%></p>
-      <a>Number of questions asked: <%= @user.questions.size %></p>
+      <p>Number of questions asked: <%= @user.questions.size %></p>
       <p>Number of answers given: <%= @user.answers.size %></p>
     </div>
 
     <div id="user-favorites-tab-data" class="list-of-things row large-5 columns">
       <p>Favorites:</p>
-      <p><%= @user.favorites %></p>
+      <% if @user.favorites %>
+        <p><%= @user.favorites %></p>
+      <% end %>
     </div>
   </div>
 </main>
