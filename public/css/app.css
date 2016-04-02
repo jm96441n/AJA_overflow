@@ -45,12 +45,44 @@
   margin-right: 2.3rem;
 }
 
+#tab-links a:hover {
+  color: #F8D691;
+}
+
 #user-questions-tab-data {
   display: inline-block;
   position: absolute;
   top: 3rem;
   left: 23rem;
   /*margin: 0 auto;*/
+}
+
+#user-questions-tab-data a {
+  color: #60452E;
+}
+
+#user-questions-tab-data a:hover {
+  color: #F8D691;
+}
+
+#user-answers-tab-data a {
+  color: #60452E;
+}
+
+#user-answers-tab-data a:hover {
+  color: #F8D691;
+}
+
+#user-history-tab-data {
+  color: #60452E;
+}
+
+#user-history-tab-data a {
+  color: #60452E;
+}
+
+#user-history-tab-data a:hover {
+  color: #F8D691;
 }
 
 #user-answers-tab-data {
@@ -82,6 +114,10 @@ display: inline-block;
 #edit-delete-user-links a {
   color: white;
   margin-right: 5rem;
+}
+
+#edit-delete-user-links a:hover {
+  color: #008000;
 }
 
 .list-of-things {
