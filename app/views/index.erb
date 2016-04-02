@@ -13,3 +13,21 @@
 <div id="homepage-header-photo">
   <img src='http://cdn.pcwallart.com/images/yoda-star-wars-wallpaper-wallpaper-4.jpg'>
 </div>
+
+<div id="login-form-container">
+  <% if @errors %>
+    <%= @errors[0] %>
+  <% end %>
+
+  <form id='login_form' action='/login' method='post'>
+      <div class='login-div'>
+        <input type='text' name='user[username]' placeholder='username' >
+      </div>
+      <div class='login-div'>
+        <input type='password' name='user[password]' placeholder='password'>
+      </div>
+      <div id='submit-button' class='login-div'>
+        <input type='submit' value='Log In'>
+      </div>
+  </form>
+</div>

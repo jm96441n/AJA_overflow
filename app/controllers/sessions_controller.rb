@@ -1,4 +1,4 @@
- get '/login' do
+get '/login' do
 	if request.xhr? 
     erb :'/sessions/_new', {layout: false}
   else
