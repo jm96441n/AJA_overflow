@@ -5,14 +5,15 @@ $(document).ready(function(){
     event.preventDefault();
 
     var $target = $(event.target);
-
     $.ajax({
-      url: $target.attr('href'),
+      url: $target.parent().attr('href'),
       method: 'get',
       data: {action: "up-vote"}
     }).done(function(response){
-      var votes_count = response.votes;
-      $("#vote-count").text(votes_count);
+      var votesCount = response.up_votes;
+      var allVotes = response.composite_votes
+      $("#up-vote-count").text(votesCount);
+      $("#composite-votes").text(allVotes);
     }).fail(function(){
       //raise error
     });
@@ -26,7 +27,7 @@ $("#down-vote-button").on("click", function(event){
   var $target = $(event.target)
 
   $.ajax({
-    url: $target.attr('href'),
+    url: $target.parent().attr('href'),
     method: 'get',
     data: {action: "down-vote"}
   }).done(function(response){
@@ -44,7 +45,7 @@ $("#favorite-button").on("click", function(event){
   var $target = $(event.target)
 
   $.ajax({
-    url: $target.attr('href'),
+    url: $target.parent().attr('href'),
     method: 'get',
     data: {action: "favorite"}
   }).done(function(response){
