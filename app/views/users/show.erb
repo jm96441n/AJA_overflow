@@ -3,7 +3,7 @@
   <%= erb :'users/_edit', locals: {user: @user}, layout: false %>
 </div>
 
-<div>
+<div id ="user-content-container">
   <div class="row large-5 columns" id="profile-view">
     <div id="tab-links">
       <a id="user-question-tab-link">QUESTIONS</a>
@@ -11,23 +11,21 @@
       <a id="user-history-questions-tab-link">HISTORY</a>
       <a id="user-favorites-questions-tab-link">FAVORITES</a>
     </div>
-  <img id = "profile-pic" src = "http://blog.on.com/wp-content/uploads/2014/01/profile-pic.jpg">
+
+  <img id = "profile-pic" src = "/images/starwars_man.png">
 
     <h3><%= @user.username %></h3>
     <div id="edit-delete-user-links">
+    
     <% if logged_in? %>
       <a id="edit-user-link" href="/users/<%= @user.id %>/edit">edit profile</a>
-    <% end %>
-
-    <% if logged_in? %>
-      <a id="delete-user-link" href="/users/<%= @user.id %>/delete">delete profile</a>
     <% end %>
     </div>
 
     <div id="user-questions-tab-data" class="list-of-things row large-5 columns">
       <p>Questions Asked:</p>
       <% @user.questions.each do |question|%>
-      <p><%= question.question_text %></p>
+      <a href="/questions/<%= question.id %>"> <p> <%= question.question_text %> </p> </a>
       <%end%>
     </div>
 
