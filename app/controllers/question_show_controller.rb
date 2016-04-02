@@ -58,7 +58,6 @@ get '/questions/:id/edit' do
 
   @question = Question.find_by(id: params[:id])
   @asker = User.find_by(id: @question.user_id)
-
   if request.xhr?
 
     case params[:action]
