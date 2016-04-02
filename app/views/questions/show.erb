@@ -10,6 +10,7 @@
 <div class='row'>
   <div class='small-1 columns' id="question-action-buttons">
     <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button"><img src="/images/up-arrow.png" class="vote-button"></a></p>
+    <p id="composite-votes"><%= @comp_votes %></p>
     <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button"><img src="/images/down-arrow.png" class="vote-button"></a></p>
     <p><a href="/questions/<%=@question.id%>/edit" id="favorite-button"><img src="/images/star.png" class="vote-button"></a></p>
   </div>
@@ -80,8 +81,12 @@
       <p><%= answer.answer_text %></p>
     </div>
   </div>
-  <img src="/images/c3po.jpg" id="question-page-asker-img" >
-  <p><a href="/users/<%=answer.user.id%>"><%= answer.user.username %></a></p>
+  <div class="row">
+    <p class="small-7 columns"></p>
+    <img src="/images/c3po.jpg" id="question-page-asker-img" class="large-2 columns" >
+    <p class="large-2 columns"><a href="/users/<%=answer.user.id%>"><%= answer.user.username %></a></p>
+    <p class="large-1 columns"></p>
+  </div>
 </div>
   <% answer.comments.each do |comment| %>
     <p id="answer-comment"><%=comment.comment_text %> by <%= User.find_by(id: comment.user_id).username%> on <%=comment.created_at %></p>
