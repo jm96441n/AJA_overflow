@@ -293,3 +293,11 @@ color: #555E5B;
 #answers-section {
   border-top: solid black 2px;
 }
+
+.vote-button {
+  height: 50px;
+}
+
+#question-stats {
+  margin-top: 50px;
+}

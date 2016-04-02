@@ -8,12 +8,12 @@
 
 
 <div class='row'>
-  <div class='small-2 columns' id="question-action-buttons">
-    <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button"><img src="/images/blue_saber.png"></a></p>
-    <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button">Down Vote</a></p>
-    <p><a href="/questions/<%=@question.id%>/edit" id="favorite-button">Favorite</a></p>
+  <div class='small-1 columns' id="question-action-buttons">
+    <p><a href="/questions/<%=@question.id%>/edit"><img src="/images/up-arrow.png" class="vote-button"></a></p>
+    <p><a href="/questions/<%=@question.id%>/edit"><img src="/images/down-arrow.png" class="vote-button"></a></p>
+    <p><a href="/questions/<%=@question.id%>/edit" id="favorite-button"><img src="/images/star.png" class="vote-button"></a></p>
   </div>
-  <div class='large-10 columns'>
+  <div class='large-11 columns'>
 
 <h3 id="question-header-text"><%=@question.question_text %></h3>
   <div id="row">
@@ -69,8 +69,17 @@
 
 <% if @answers %>
 <% @answers.each do |answer| %>
+
 <div id="answer-wrapper">
-  <p><%= answer.answer_text %></p>
+  <div class="row">
+    <div class='small-2 columns' id="question-action-buttons">
+      <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button"><img src="/images/up-arrow.png" class="vote-button"></a></p>
+      <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button"><img src="/images/down-arrow.png" class="vote-button"></a></p>
+    </div>
+    <div class='small-10 columns'>
+      <p><%= answer.answer_text %></p>
+    </div>
+  </div>
   <img src="/images/c3po.jpg" id="question-page-asker-img" >
   <p><%= answer.user.username %></p>
 </div>
