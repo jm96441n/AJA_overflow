@@ -124,8 +124,9 @@ $('#login').on('submit', function(event){
   }
   $.ajax(params).done(function(response){
     console.log(data)
-  $('#login_form').fadeOut(1000)
+  // $('#login_form').fadeTo('slow', 0)
   $('.top-bar-right').load('/index .top-bar-right');
+  $('#login_form').css('display','none')
   }).fail(function(response){
     alert('A correct username or password enter, you must')
   })
@@ -133,6 +134,7 @@ $('#login').on('submit', function(event){
 
 $('.top-bar-right').on('click','#logout', function(event){
   event.preventDefault
+  $('#logout-text').css('display','inline')
   params = {
     url: '/logout',
     method: 'get',
@@ -140,6 +142,8 @@ $('.top-bar-right').on('click','#logout', function(event){
   }
   $.ajax(params).done(function(){
     $('.top-bar-right').load('/index .top-bar-right')
+    $('#logout-text').css('display','none')
+
   })
 })
 

@@ -1,39 +1,46 @@
-  <% if @errors %>
-    <%= erb :'errors/_errors' %>
-  <% end %>
-<div>
-  <form id="new_question_form" method="POST" action="/questions/new">
-
-    <div>
-      <label for="question-text">whats your question?</label>
-      <input id="question-text" type="text" name="question_text" placeholder="type your question here">
-    </div>
-
-    <input id="new_question_button" type="submit" value="submit question">
-  </form>
-</div>
-
-  <br>
-
 <section id="questions-list-section">
+  <div class="row">
+    <div class="small-1 medium-1 large-1 columns titles">
+        <h4>Views</h4>
+    </div>
+    <div class="small-1 medium-1 large-1 columns titles">
+        <h4>Answers</h4>
+    </div>
+    <div class="small-1 medium-1 large-1 columns titles">
+        <h4>Votes</h4>
+    </div>
+    <div class="small-8 medium-8 large-8 columns titles">
+      <h4>
+      Questions
+      </h4>
+    </div>
     <% @questions.each do |question| %>
   <div class="row">
-    <div class="small-2">
+    <div class="small-1 medium-1 large-1 columns titles">
+        <%= question.view_count %>
+    </div>
+    <div class="small-1 medium-1 large-1 columns titles">
+        <%= question.ans_count %>
+    </div>
+    <div class="small-1 medium-1 large-1 columns titles">
+        <%= question.vote_count %>
+    </div>
+    <div class="small-8 medium-8 large-8 columns">
       <p>
-      <a href="/questions/<%= question.id %>"><%= question.question_text %></a>
+      <a class='questions' href="/questions/<%= question.id %>"><%= question.question_text %></a>
       </p>
     </div>
 
-    <div class="small-8 ">
-        <%= question.view_count %>
-    </div>
   </div>
     <% end %>
+<div id='ask_a_q' class='row'>
+  <a id='q_link' href='/questions/new'> Click to Ask a Question </a>
+</div>
 </section>
+
+
+
   <div id="form-placeholder"></div>
   <div id="register-form-placeholder"> </div>
   <div id="form-placeholder-background"></div>
 
-
-<!-- large-8 columns -->
-<!-- large-8 columns -->
