@@ -13,9 +13,8 @@
     </div>
   <img id = "profile-pic" src = "http://blog.on.com/wp-content/uploads/2014/01/profile-pic.jpg">
 
-
     <h3><%= @user.username %></h3>
-
+    <div id="edit-delete-user-links">
     <% if logged_in? %>
       <a id="edit-user-link" href="/users/<%= @user.id %>/edit">edit profile</a>
     <% end %>
@@ -23,6 +22,7 @@
     <% if logged_in? %>
       <a id="delete-user-link" href="/users/<%= @user.id %>/delete">delete profile</a>
     <% end %>
+    </div>
 
     <div id="user-questions-tab-data" class="list-of-things row large-5 columns">
       <p>Questions Asked:</p>

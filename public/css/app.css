@@ -28,8 +28,12 @@
   position: absolute;
   left: 23rem;
   top: 0;
-  border-style: solid;
-  border-color: black;
+  /*border-style: solid;
+  border-color: black;*/
+}
+
+#tab-links a {
+  color: #60452E;
 }
 
 #tab-links a {
@@ -45,14 +49,14 @@
 }
 
 #user-answers-tab-data {
-display: inline-block;
+  display: inline-block;
   position: absolute;
   top: 3rem;
   left: 23rem;
 }
 
 #user-history-tab-data {
-display: inline-block;
+  display: inline-block;
   position: absolute;
   top: 3rem;
   left: 23rem;
@@ -63,6 +67,15 @@ display: inline-block;
   position: absolute;
   top: 3rem;
   left: 23rem;
+}
+
+#edit-delete-user-links {
+  position: absolute;
+  display: inline-block;
+}
+
+#edit-delete-user-links a {
+  color: white;
 }
 
 .list-of-things {
