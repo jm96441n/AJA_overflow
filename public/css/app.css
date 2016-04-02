@@ -1,18 +1,77 @@
-#profile-view {
-  background-color: #BAE2FF;
+#user_show_background{
+  z-index: -10;
+  background-image: url('http://wallup.net/wp-content/uploads/2015/12/299931-Star_Wars-minimalism-Star_Wars_Episode_II_-_The_Attack_of_the_Clones-portrait_display-736x459.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
   width: 100%;
-  text-align: center;
+}
+
+#profile-view {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  top: 1rem;
+  left: 2.5rem;
+}
+
+#profile-pic {
+  display: inline-block;
+  position: relative;
+  width: 16rem;
+  height: 16rem;
+}
+
+#tab-links {
+  display: inline-block;
+  position: absolute;
+  left: 23rem;
+  top: 0;
+  border-style: solid;
+  border-color: black;
+}
+
+#tab-links a {
+  margin-right: 3.5rem;
+}
+
+#user-questions-tab-data {
+  display: inline-block;
+  position: absolute;
+  top: 3rem;
+  left: 23rem;
+  /*margin: 0 auto;*/
+}
+
+#user-answers-tab-data {
+display: inline-block;
+  position: absolute;
+  top: 3rem;
+  left: 23rem;
+}
+
+#user-history-tab-data {
+display: inline-block;
+  position: absolute;
+  top: 3rem;
+  left: 23rem;
+}
+
+#user-favorites-tab-data {
+display: inline-block;
+  position: absolute;
+  top: 3rem;
+  left: 23rem;
 }
 
 .list-of-things {
-  background-color: #9EE8C6;
   width: 100%;
 }
 
 #login_form {
 	display: none;
 }
-
 
 .full-width {
   max-width: 1400px;
@@ -195,8 +254,6 @@
 .login-div {
   display: inline-block;
   margin-right: 0.2rem;
-
-
 }
 
 #submit-button {
@@ -209,5 +266,4 @@
 
 #login {
   background-color: #60452E;
-
 }
