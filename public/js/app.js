@@ -106,13 +106,11 @@ $("#your_answer_form").on("submit", function(event){
   })
 })
 
-
+// $("#login-form-container").hide();
 $('.top-bar-right').on('click','#login_link', function(event){
   event.preventDefault()
-  $('#log-reg-links').fadeOut(1000, function(){
-     $('#login_form').fadeIn(1000)
-  })
-
+  // $('#login-form-container').show()
+  $("#login_form").fadeIn("100000")
 })
 
 $('#login').on('submit', function(event){

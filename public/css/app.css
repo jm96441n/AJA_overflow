@@ -34,10 +34,9 @@
 
 #tab-links a {
   color: #60452E;
-}
-
-#tab-links a {
-  margin-right: 3.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-right: 2.3rem;
 }
 
 #user-questions-tab-data {
@@ -76,6 +75,7 @@ display: inline-block;
 
 #edit-delete-user-links a {
   color: white;
+  margin-right: 5rem;
 }
 
 .list-of-things {
@@ -250,11 +250,13 @@ display: inline-block;
   top: 30%;
   left: 20%;
   position: absolute;
-  display: inline-block;
+  display: block;
   height: 10%;
   width: 100%;
   z-index: 1;
   text-align: center;
+  background-color: red;
+  margin-bottom: 2rem;
 }
 
 #new-question-text {
