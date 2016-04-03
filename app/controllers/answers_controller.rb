@@ -41,7 +41,19 @@ get '/answers/:id/edit' do
         end
     end
   else
-    erb :'answers/edit'
+    erb :"/answers/edit"
     #right now if the user doesn't send an ajax request, it will automatically load the edit answer page, which is not necessarily what we want, if they are favoriting something or up/down voting something
   end
+end
+
+post '/answers/:id/edit' do
+  @answer = Answer.find_by(id: params[:answer_id])
+  @answer.update(answer_text: params[:answer_text])
+
+  if @answer.save
+    redirect "/questions/#{@answer.question_id}"
+  else
+    status 400
+  end
+
 end

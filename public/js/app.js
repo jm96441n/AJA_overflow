@@ -322,17 +322,16 @@ $(".answer-and-comments").on("submit", "#new_comment_form", function(event){
 // up-vote answers
   $("#answer-action-buttons").on("click","#up-vote-button", function(event){
     event.preventDefault();
-    debugger
 
     var $target = $(event.target);
+
     $.ajax({
       url: $target.parent().attr('href'),
       method: 'get',
       data: {action: "up-vote"}
     }).done(function(response){
       var allVotes = response.composite_votes
-      //update composite vote count on answer
-      // $("#composite-votes").text(allVotes);
+      $target.parent().parent().parent().find("#composite-votes").text(allVotes)
     }).fail(function(){
       //raise error
     });
