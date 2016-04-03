@@ -1,3 +1,3 @@
-get '/tasks/new' do
-  
+get '/tags/new' do
+
 end
