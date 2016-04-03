@@ -9,11 +9,24 @@
 
 <div class='row'>
   <div class='small-1 columns' id="question-action-buttons">
-    <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button"><img src="/images/up-arrow.png" class="vote-button"></a></p>
-    <p id="composite-votes"><%= @comp_votes %></p>
-    <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button"><img src="/images/down-arrow.png" class="vote-button"></a></p>
-    <p><a href="/questions/<%=@question.id%>/edit" id="favorite-button"><img src="/images/star.png" class="vote-button"></a></p>
+    <% if logged_in? %>
+        <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button">
+          <img src="/images/up-arrow.png" class="vote-button">
+        </a></p>
+        <p id="composite-votes"><%= @comp_votes %></p>
+        <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button">
+          <img src="/images/down-arrow.png" class="vote-button">
+        </a></p>
+        <p><a href="/questions/<%=@question.id%>/edit" id="favorite-button"><img src="/images/star.png" class="vote-button"></a></p>
+    <% else %>
+        <p><img src="/images/up-arrow.png" class="vote-button"></p>
+        <p id="composite-votes"><%= @comp_votes %></p>
+        <p><img src="/images/down-arrow.png" class="vote-button"></p>
+        <p><img src="/images/star.png" class="vote-button"></p>
+    <% end %>
   </div>
+
+
   <div class='large-10 columns'>
 
   <h3 id="question-header-text"><%=@question.question_text %></h3>
@@ -84,9 +97,25 @@
 <div id="answer-wrapper">
   <div class="row">
     <div class='small-2 columns' id="answer-action-buttons">
-      <p><a href="/answers/<%=answer.id%>/edit" id="up-vote-button"><img src="/images/up-arrow.png" class="vote-button"></a></p>
+      <p>
+        <% if logged_in? %>
+        <a href="/answers/<%=answer.id%>/edit" id="up-vote-button">
+          <img src="/images/up-arrow.png" class="vote-button">
+        </a>
+        <% else %>
+          <img src="/images/up-arrow.png" class="vote-button">
+        <% end %>
+      </p>
       <p id="composite-votes"><%= answer.votes.size %></p>
-      <p><a href="/answers/<%=answer.id%>/edit" id="down-vote-button"><img src="/images/down-arrow.png" class="vote-button"></a></p>
+      <p>
+        <% if logged_in? %>
+        <a href="/answers/<%=answer.id%>/edit" id="down-vote-button">
+          <img src="/images/down-arrow.png" class="vote-button">
+        </a>
+        <% else %>
+          <img src="/images/down-arrow.png" class="vote-button">
+        <% end %>
+      </p>
     </div>
     <div class='small-10 columns answer-text'>
       <p id="answer-<%=answer.id%>"><%= answer.answer_text %></p>

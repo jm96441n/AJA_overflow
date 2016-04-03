@@ -320,7 +320,7 @@ $(".answer-and-comments").on("submit", "#new_comment_form", function(event){
 
 
 // up-vote answers
-  $("#answer-action-buttons").on("click","#up-vote-button", function(event){
+  $("#answers-section").on("click","#up-vote-button", function(event){
     event.preventDefault();
 
     var $target = $(event.target);
@@ -338,7 +338,7 @@ $(".answer-and-comments").on("submit", "#new_comment_form", function(event){
   });
 
 // down-vote answers
-$("#answer-action-buttons").on("click", "#down-vote-button", function(event){
+$("#answers-section").on("click", "#down-vote-button", function(event){
 
   event.preventDefault()
 
