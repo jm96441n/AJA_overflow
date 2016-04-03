@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     // up vote button on question page
-  $("#up-vote-button").on("click", function(event){
+  $("#question-action-buttons").on("click", "#up-vote-button", function(event){
     event.preventDefault();
 
     var $target = $(event.target);
@@ -15,12 +15,12 @@ $(document).ready(function(){
       $("#up-vote-count").text(votesCount);
       $("#composite-votes").text(allVotes);
     }).fail(function(){
-      //raise error
+      //error message
     });
   });
 
 
-$("#down-vote-button").on("click", function(event){
+$("#question-action-buttons").on("click", "#down-vote-button", function(event){
 
   event.preventDefault()
 
@@ -308,6 +308,60 @@ $(".answer-and-comments").on("submit", "#new_comment_form", function(event){
     //raise error
   })
 })
+
+
+
+
+
+
+
+
+
+
+
+// up-vote answers
+  $("#answer-action-buttons").on("click","#up-vote-button", function(event){
+    event.preventDefault();
+    debugger
+
+    var $target = $(event.target);
+    $.ajax({
+      url: $target.parent().attr('href'),
+      method: 'get',
+      data: {action: "up-vote"}
+    }).done(function(response){
+      var allVotes = response.composite_votes
+      //update composite vote count on answer
+      // $("#composite-votes").text(allVotes);
+    }).fail(function(){
+      //raise error
+    });
+  });
+
+// down-vote answers
+$("#answer-action-buttons").on("click", "#down-vote-button", function(event){
+
+  event.preventDefault()
+
+  var $target = $(event.target)
+
+  $.ajax({
+    url: $target.parent().attr('href'),
+    method: 'get',
+    data: {action: "down-vote"}
+  }).done(function(response){
+    // update composite vote count on answer
+    // $("#composite-votes").text(response.composite_votes)
+  }).fail(function(){
+    //raise error
+  })
+})
+
+
+
+
+
+
 
 });
 

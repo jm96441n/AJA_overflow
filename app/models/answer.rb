@@ -6,4 +6,10 @@ class Answer < ActiveRecord::Base
   belongs_to :question
 
   validates :answer_text, :user, :question, presence: true
+
+  def self.author?(answer_id, user_id)
+    answer = Answer.find_by(id: answer_id)
+    answer.user_id == user_id
+  end
+
 end
