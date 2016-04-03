@@ -353,8 +353,8 @@ display: inline-block;
 
 #login-form {
   display: inline-block;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 10rem;
+  margin-bottom: 16rem;
 }
 
 #login {
@@ -385,6 +385,7 @@ color: #555E5B;
 #ask_a_q {
   text-align: center;
   font-size: 1.6rem;
+  margin-bottom: 0rem;
 }
 
 #q_link {
@@ -450,4 +451,16 @@ color: #555E5B;
   width: auto;
   text-align: center;
   color: rgb(64, 58, 51);
+  border: 1px solid gray;
 }
+
+
+.tags_questions{
+/*  float: left;*/
+  background-image: url('/images/desert_bg.png');
+  min-height: 45rem;
+  height: auto;
+}
+
+
+

@@ -24,7 +24,7 @@
   </div>
   <div class='small-1 columns'>
     <% @tags.each do |tag| %>
-      <p class='tag'><%= tag.tag_name %></p>
+      <a href='/tags/<%= tag.id %>' ><p class='tag'><%= tag.tag_name %></p></a>
     <% end %>
   </div>
 </div>
