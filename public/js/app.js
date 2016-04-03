@@ -218,7 +218,7 @@ $("#ask-button").on("submit",function(){
   });
 
     //hide tabs on user show page when document loads
-  // $("#user-questions-tab-data").hide(); 
+  // $("#user-questions-tab-data").hide();
   $("#user-answers-tab-data").hide();
   $("#user-history-tab-data").hide();
   $("#user-favorites-tab-data").hide();
@@ -259,8 +259,32 @@ $("#ask-button").on("submit",function(){
     $("#profile-pic").css("opacity", "10")
   })
 
+
+
+
+
+
+$("#new-comment-link-question").on("click", function(event){
+  event.preventDefault()
+  debugger
+  var $target = $(event.target)
+  var questionID = 0
+
+  $.ajax({
+    url: $target.attr('href'),
+    method: 'get',
+    data: {commentable_type: "question", commentable_id: questionID}
+  }).done(function(response){
+    debugger
+    $("#comments-section").append(response)
+  }).fail(function(){
+    //raise error
+  })
+})
+
+
 });
-  
+
 
   // post for register form. having trouble targeting parent div in order to bubble. for and parent div ids correspond and are in correct place. not sure what the problem is.
 

@@ -55,11 +55,14 @@
 
 
 
-<div id="comments-section"
+<div id="comments-section">
   <h5>Comments</h5>
-  <% @question.comments.each do |comment| %>
-  <p><%= comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
-  <% end %>
+  <div id = "comments-in-comments-section">
+    <% @question.comments.each do |comment| %>
+      <p><%= comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
+    <% end %>
+  </div>
+  <a href="/comments/new" id="new-comment-link-question" class="new-comment-link">Add a comment</a>
 </div>
 
 
