@@ -301,6 +301,44 @@ $("#comments-section").on("submit", "#new_comment_form", function(event){
   })
 })
 
+
+$("#answer-comments-section").on("click", "#new-comment-link-answer", function(event){
+  event.preventDefault()
+
+  var $target = $(event.target)
+  var findAnswer = $("#answer-wrapper").find(".answer-text").find("p").attr("id")
+  var answerID = findAnswer.split("-")[1]
+
+  $.ajax({
+    url: $target.attr('href'),
+    method: 'get',
+    data: {commentable_type: "Answer", commentable_id: answerID}
+  }).done(function(response){
+    $("#new-comment-link-answer").hide()
+    $("#answer-comments-section").append(response)
+  }).fail(function(){
+    //raise error
+  })
+})
+
+$("#answer-comments-section").on("submit", "#new_comment_form", function(event){
+  event.preventDefault()
+
+  var $target = $(event.target)
+  var info = $target.serialize()
+
+  $.ajax({
+    url: $target.attr('action'),
+    method: 'post',
+    data: info
+  }).done(function(response){
+    $("#new-comment-link-answer").show()
+    $("#comments-in-answers-section").append(response)
+  }).fail(function(){
+    //raise error
+  })
+})
+
 });
 
 
