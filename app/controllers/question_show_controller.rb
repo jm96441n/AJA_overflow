@@ -13,7 +13,7 @@ get '/questions/index' do
   if request.xhr?
     erb :"/questions/_index", locals: {questions: @questions}, layout: false
   else
-    erb :"/questions/index"
+    erb :"/questions/index", locals: {questions: @questions}, layout: false
   end
 end
 
