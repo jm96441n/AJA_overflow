@@ -3,7 +3,7 @@
 
 
 <div class='row spacing'>
-  <a href="/">Return to questions page</a>
+  <a href="/index">Return to questions page</a>
 </div>
 
 
@@ -31,6 +31,10 @@
       <p id="comment-count" class='stats'>Comments:</p>
         <p class='stats'><%=@question.comments.size%></p>
     </div>
+    <div class='large-2 columns'>
+      <p class='stats'>Answers:</p>
+        <p class='stats' id="composite-votes"><%= @question.answers.size %></p>
+    </div>
     <div class='large-2 columns' >
       <p class='stats'>Up Votes:</p>
         <p class='stats' id="up-vote-count"><%= @up_votes %></p>
@@ -38,10 +42,6 @@
     <div class='large-2 columns'>
       <p class='stats'>Down Votes:</p>
         <p class='stats' id="down-vote-count"><%= @down_votes %></p>
-    </div>
-    <div class='large-2 columns'>
-      <p class='stats'>Composite Votes:</p>
-        <p class='stats' id="composite-votes"><%= @comp_votes %></p>
     </div>
     <div class='large-2 columns'>
       <p class='stats'>Favorited:</p>
