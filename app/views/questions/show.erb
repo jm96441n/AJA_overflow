@@ -69,6 +69,7 @@
 <% if @answers %>
 <% @answers.each do |answer| %>
 
+<div class="answer-and-comments">
 <div id="answer-wrapper">
   <div class="row">
     <div class='small-2 columns' id="question-action-buttons">
@@ -87,13 +88,14 @@
   </div>
 </div>
 
-<div id="answer-comments-section">
+<div id="answer-comments-<%=answer.id%>" class="answer-comments-section">
   <div id = "comments-in-answers-section">
     <% answer.comments.each do |comment| %>
-      <p id="answer-comment"><%=comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
+      <p class="answer-comment"><%=comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
     <% end %>
   </div>
-  <a href="/comments/new" id="new-comment-link-answer" class="new-comment-link">Add a comment</a>
+  <a href="/comments/new" id="new-comment-link-answer-<%=answer.id%>" class="new-comment-link-answer">Add a comment</a>
+</div>
 </div>
 <% end %>
 <% end %>

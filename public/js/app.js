@@ -285,7 +285,7 @@ $("#comments-section").on("click", "#new-comment-link-question", function(event)
 
 $("#comments-section").on("submit", "#new_comment_form", function(event){
   event.preventDefault()
-
+  debugger
   var $target = $(event.target)
   var info = $target.serialize()
 
@@ -302,28 +302,27 @@ $("#comments-section").on("submit", "#new_comment_form", function(event){
 })
 
 
-$("#answer-comments-section").on("click", "#new-comment-link-answer", function(event){
+$(".answer-and-comments").on("click", ".new-comment-link-answer", function(event){
   event.preventDefault()
 
   var $target = $(event.target)
-  var findAnswer = $("#answer-wrapper").find(".answer-text").find("p").attr("id")
-  var answerID = findAnswer.split("-")[1]
+  var answerID = $(event.target).attr("id").split("-")[4]
 
   $.ajax({
     url: $target.attr('href'),
     method: 'get',
     data: {commentable_type: "Answer", commentable_id: answerID}
   }).done(function(response){
-    $("#new-comment-link-answer").hide()
-    $("#answer-comments-section").append(response)
+    $("#new-comment-link-answer-" + answerID).hide()
+    $("#answer-comments-" + answerID).append(response)
   }).fail(function(){
     //raise error
   })
 })
 
-$("#answer-comments-section").on("submit", "#new_comment_form", function(event){
+$(".answer-and-comments").on("submit", "#new_comment_form", function(event){
   event.preventDefault()
-
+  debugger
   var $target = $(event.target)
   var info = $target.serialize()
 
@@ -332,7 +331,9 @@ $("#answer-comments-section").on("submit", "#new_comment_form", function(event){
     method: 'post',
     data: info
   }).done(function(response){
+    debugger
     $("#new-comment-link-answer").show()
+    // $("#answer-comments-" + ).find("#comments-in-answers-section").append(response)
     $("#comments-in-answers-section").append(response)
   }).fail(function(){
     //raise error
