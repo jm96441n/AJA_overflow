@@ -272,7 +272,7 @@ $("#comments-section").on("submit", "#new_comment_form", function(event){
 })
 
 
-$(".answer-and-comments").on("click", ".new-comment-link-answer", function(event){
+$("#answers-section").on("click", ".new-comment-link-answer", function(event){
   event.preventDefault()
 
   var $target = $(event.target)
@@ -290,9 +290,9 @@ $(".answer-and-comments").on("click", ".new-comment-link-answer", function(event
   })
 })
 
-$(".answer-and-comments").on("submit", "#new_comment_form", function(event){
+$("#answers-section").on("submit", "#new_comment_form", function(event){
   event.preventDefault()
-  debugger
+
   var $target = $(event.target)
   var info = $target.serialize()
 
@@ -301,9 +301,12 @@ $(".answer-and-comments").on("submit", "#new_comment_form", function(event){
     method: 'post',
     data: info
   }).done(function(response){
-    $("#new-comment-link-answer").show()
     // $("#answer-comments-" + ).find("#comments-in-answers-section").append(response)
+    debugger
+    var target = $target
     $("#comments-in-answers-section").append(response)
+    $("#your_comment").val("")
+    $("#new-comment-link-answer").show()
   }).fail(function(){
     //raise error
   })
