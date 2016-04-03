@@ -6,6 +6,7 @@
 </div>
 
 
+
 <div class='row'>
   <div class='small-1 columns' id="question-action-buttons">
     <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button"><img src="/images/up-arrow.png" class="vote-button"></a></p>
@@ -13,13 +14,18 @@
     <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button"><img src="/images/down-arrow.png" class="vote-button"></a></p>
     <p><a href="/questions/<%=@question.id%>/edit" id="favorite-button"><img src="/images/star.png" class="vote-button"></a></p>
   </div>
-  <div class='large-11 columns'>
+  <div class='large-10 columns'>
 
-<h3 id="question-header-text"><%=@question.question_text %></h3>
+  <h3 id="question-header-text"><%=@question.question_text %></h3>
   <div id="row">
     <img src="/images/starwars_man.png" id="question-page-asker-img" class="large-2 columns">
     <p class='quest_info large-10 columns'>Asked by <a href="/users/<%=@asker.id%>"><%= @asker.username %></a><br>Updated on <%= @question.updated_at %></p>
   </div>
+  </div>
+  <div class='small-1 columns'>
+    <% @tags.each do |tag| %>
+      <p class='tag'><%= tag.tag_name %></p>
+    <% end %>
   </div>
 </div>
 
