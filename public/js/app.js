@@ -228,6 +228,87 @@ $("#ask-button").on("submit",function(){
     $("#profile-pic").css("opacity", "10")
   })
 
+
+
+
+
+
+$("#comments-section").on("click", "#new-comment-link-question", function(event){
+  event.preventDefault()
+
+  var $target = $(event.target)
+  var questionURL = $("#question-action-buttons").find("a").first().attr('href')
+  var questionID = questionURL.split('/')[2]
+
+  $.ajax({
+    url: $target.attr('href'),
+    method: 'get',
+    data: {commentable_type: "Question", commentable_id: questionID}
+  }).done(function(response){
+    $("#new-comment-link-question").hide()
+    $("#comments-section").append(response)
+  }).fail(function(){
+    //raise error
+  })
+})
+
+$("#comments-section").on("submit", "#new_comment_form", function(event){
+  event.preventDefault()
+  debugger
+  var $target = $(event.target)
+  var info = $target.serialize()
+
+  $.ajax({
+    url: $target.attr('action'),
+    method: 'post',
+    data: info
+  }).done(function(response){
+    $("#new-comment-link-question").show()
+    $("#comments-in-comments-section").append(response)
+  }).fail(function(){
+    //raise error
+  })
+})
+
+
+$(".answer-and-comments").on("click", ".new-comment-link-answer", function(event){
+  event.preventDefault()
+
+  var $target = $(event.target)
+  var answerID = $(event.target).attr("id").split("-")[4]
+
+  $.ajax({
+    url: $target.attr('href'),
+    method: 'get',
+    data: {commentable_type: "Answer", commentable_id: answerID}
+  }).done(function(response){
+    $("#new-comment-link-answer-" + answerID).hide()
+    $("#answer-comments-" + answerID).append(response)
+  }).fail(function(){
+    //raise error
+  })
+})
+
+$(".answer-and-comments").on("submit", "#new_comment_form", function(event){
+  event.preventDefault()
+  debugger
+  var $target = $(event.target)
+  var info = $target.serialize()
+
+  $.ajax({
+    url: $target.attr('action'),
+    method: 'post',
+    data: info
+  }).done(function(response){
+    debugger
+    $("#new-comment-link-answer").show()
+    // $("#answer-comments-" + ).find("#comments-in-answers-section").append(response)
+    $("#comments-in-answers-section").append(response)
+  }).fail(function(){
+    //raise error
+  })
+})
+
 });
 
 
