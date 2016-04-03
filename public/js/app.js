@@ -264,9 +264,9 @@ $("#ask-button").on("submit",function(){
 
 
 
-$("#new-comment-link-question").on("click", function(event){
+$("#comments-section").on("click", "#new-comment-link-question", function(event){
   event.preventDefault()
-  debugger
+
   var $target = $(event.target)
   var questionURL = $("#question-action-buttons").find("a").first().attr('href')
   var questionID = questionURL.split('/')[2]
@@ -283,6 +283,23 @@ $("#new-comment-link-question").on("click", function(event){
   })
 })
 
+$("#comments-section").on("submit", "#new_comment_form", function(event){
+  event.preventDefault()
+
+  var $target = $(event.target)
+  var info = $target.serialize()
+
+  $.ajax({
+    url: $target.attr('action'),
+    method: 'post',
+    data: info
+  }).done(function(response){
+    $("#new-comment-link-question").show()
+    $("#comments-in-comments-section").append(response)
+  }).fail(function(){
+    //raise error
+  })
+})
 
 });
 
