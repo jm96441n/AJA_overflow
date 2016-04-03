@@ -89,7 +89,7 @@
   </div>
 </div>
   <% answer.comments.each do |comment| %>
-    <p id="answer-comment"><%=comment.comment_text %> by <%= User.find_by(id: comment.user_id).username%> on <%=comment.created_at %></p>
+    <p id="answer-comment"><%=comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
   <% end %>
   <p>Add a comment</p>
 <% end %>
