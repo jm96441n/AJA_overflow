@@ -254,7 +254,7 @@ $("#comments-section").on("click", "#new-comment-link-question", function(event)
 
 $("#comments-section").on("submit", "#new_comment_form", function(event){
   event.preventDefault()
-  debugger
+
   var $target = $(event.target)
   var info = $target.serialize()
 
@@ -265,6 +265,7 @@ $("#comments-section").on("submit", "#new_comment_form", function(event){
   }).done(function(response){
     $("#new-comment-link-question").show()
     $("#comments-in-comments-section").append(response)
+    $("#new_comment_form").text("")
   }).fail(function(){
     //raise error
   })
