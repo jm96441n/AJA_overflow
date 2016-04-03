@@ -1,4 +1,22 @@
-<p><%= answer.answer_text %></p>
+
+<div id="answer-wrapper">
+  <div class="row">
+    <div class='small-2 columns' id="question-action-buttons">
+      <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button"><img src="/images/up-arrow.png" class="vote-button"></a></p>
+      <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button"><img src="/images/down-arrow.png" class="vote-button"></a></p>
+    </div>
+    <div class='small-10 columns'>
+      <p><%= answer.answer_text %></p>
+    </div>
+  </div>
+  <div class="row">
+    <p class="small-7 columns"></p>
+    <img src="/images/c3po.jpg" id="question-page-asker-img" class="large-2 columns" >
+    <p class="large-2 columns"><a href="/users/<%=answer.user.id%>"><%= answer.user.username %></a></p>
+    <p class="large-1 columns"></p>
+  </div>
+</div>
   <% answer.comments.each do |comment| %>
-    <p id="answer-comment"><%= comment.comment_text %></p>
+    <p id="answer-comment"><%=comment.comment_text %> by <%= User.find_by(id: comment.user_id).username%> on <%=comment.created_at %></p>
   <% end %>
+  <p>Add a comment</p>
