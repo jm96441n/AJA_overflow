@@ -85,6 +85,18 @@
   color: #F8D691;
 }
 
+#user-favorites-tab-data {
+  color: #60452E;
+}
+
+#user-favorites-tab-data a {
+  color: #60452E;
+}
+
+#user-favorites-tab-data a:hover {
+  color: #F8D691;
+}
+
 #user-answers-tab-data {
   display: inline-block;
   position: absolute;
@@ -100,7 +112,7 @@
 }
 
 #user-favorites-tab-data {
-display: inline-block;
+  display: inline-block;
   position: absolute;
   top: 3rem;
   left: 23rem;

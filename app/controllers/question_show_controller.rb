@@ -8,7 +8,7 @@ get '/questions/new' do
 end
 
 get '/questions/index' do
-  @questions = Question.all
+  @questions = Question.order("created_at DESC")
 
   if request.xhr?
     erb :"/questions/_index", locals: {questions: @questions}, layout: false
