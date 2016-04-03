@@ -64,8 +64,13 @@
     <% @question.comments.each do |comment| %>
       <p><%= comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
     <% end %>
+    <% if @question.comments.empty? %>
+      <p> No comments this question has! </p>
+    <% end %>
   </div>
+  <% if logged_in? %>
   <a href="/comments/new" id="new-comment-link-question" class="new-comment-link">Add a comment</a>
+  <% end %>
 </div>
 
 
@@ -96,11 +101,17 @@
 
 <div id="answer-comments-<%=answer.id%>" class="answer-comments-section">
   <div id = "comments-in-answers-section">
+    <p>Comments: </p>
     <% answer.comments.each do |comment| %>
       <p class="answer-comment"><%=comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
     <% end %>
+    <% if answer.comments.empty? %>
+      <p> No comments this question has! </p>
+    <% end %>
   </div>
-  <a href="/comments/new" id="new-comment-link-answer-<%=answer.id%>" class="new-comment-link-answer">Add a comment</a>
+  <% if logged_in? %>
+    <a href="/comments/new" id="new-comment-link-answer-<%=answer.id%>" class="new-comment-link-answer">Add a comment</a>
+  <% end %>
 </div>
 </div>
 <% end %>
