@@ -300,7 +300,6 @@ $(".answer-and-comments").on("submit", "#new_comment_form", function(event){
     method: 'post',
     data: info
   }).done(function(response){
-    debugger
     $("#new-comment-link-answer").show()
     // $("#answer-comments-" + ).find("#comments-in-answers-section").append(response)
     $("#comments-in-answers-section").append(response)

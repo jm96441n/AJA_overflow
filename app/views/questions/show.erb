@@ -33,6 +33,13 @@
   <div id="row">
     <img src="/images/starwars_man.png" id="question-page-asker-img" class="large-2 columns">
     <p class='quest_info large-10 columns'>Asked by <a href="/users/<%=@asker.id%>"><%= @asker.username %></a><br>Updated on <%= @question.updated_at %></p>
+
+    <% if logged_in? && Question.author?(@question.id, current_user.id) %>
+      <form id="edit_question_button" method="POST" action="/questions/<%=@question.id%>/edit">
+        <input type="submit" value="Edit Question">
+      </form>
+    <% end %>
+
   </div>
   </div>
   <div class='small-1 columns'>
@@ -159,9 +166,4 @@
   </form>
 <% end %>
 
-<% if logged_in? #&& Question.author?(@question.id, current_user.id) %>
-  <form id="edit_question_button" method="POST" action="/questions/<%=@question.id%>/edit">
-    <input type="submit" value="Edit Question">
-  </form>
-<% end %>
 </div>
