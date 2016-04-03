@@ -349,8 +349,8 @@ $("#answer-action-buttons").on("click", "#down-vote-button", function(event){
     method: 'get',
     data: {action: "down-vote"}
   }).done(function(response){
-    // update composite vote count on answer
-    // $("#composite-votes").text(response.composite_votes)
+    var allVotes = response.composite_votes
+    $target.parent().parent().parent().find("#composite-votes").text(allVotes)
   }).fail(function(){
     //raise error
   })
