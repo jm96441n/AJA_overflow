@@ -1,4 +1,5 @@
 get '/questions/new' do
+  @tags = Tag.all
 
   if request.xhr?
     erb :"/questions/_new_question", layout: false
@@ -20,7 +21,6 @@ end
 
 post '/questions/new' do
   @question = Question.new(question_text: params[:question_text], user_id: session[:user_id])
-
   if @question.save
     if request.xhr?
       content_type :json

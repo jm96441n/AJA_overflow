@@ -1,19 +1,23 @@
-<div>
-	<div id="new-question-area">
-	  <form id="new_question_form" method="POST" action="/questions/new">
+<div id='background'>
+  <div id="new-question-area">
+    <form id="new_question_form" method="POST" action="/questions/new">
 
-	    <div>
-	     <!--  <label for="question-text">What is your question?</label> -->
-	      <input id="new-question-text" type="text" name="question_text" placeholder="Ask Yoda, you must.">
-	    </div>
-	    <div id='q_button'>
-	    	<input id="new_question_button" type="submit" value="GO">
-	  	</div>
-	  </form>
-	</div>
+      <div>
+       <!--  <label for="question-text">What is your question?</label> -->
+        <input id="new-question-text" type="text" name="question_text" placeholder="Ask Yoda, you must.">
+      </div>
+     <div id='q_button'>
+        <input id="new_question_button" type="submit" value="Choose Tags">
+      </div>
+    </form>
+  </div>
 
-	<img id='new_q_bg' src='/images/maxresdefault.jpg'>
+  	<div class='tag_partial_container'>
+  		<%= erb :'/tags/_tags',locals: {tags: @tags}, layout: false %>
+  	</div>
+
 
 </div>
-<div id="ask-page-header-photo">
+  <div id="ask-page-header-photo">
+</div>
 </div>

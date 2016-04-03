@@ -138,7 +138,7 @@ $('.top-bar-right').on('click','#login_link', function(event){
 
   $("#new_question_form").on("submit", function(event){
     event.preventDefault();
-
+    $()
     var path = $(event.target).attr("action");
     var formData = $(event.target).serialize();
 
@@ -148,7 +148,8 @@ $('.top-bar-right').on('click','#login_link', function(event){
       data: formData,
       dataType: 'html'
     }).done(function(event){
-      $("#new_question_form").load("/index #new_question_form");
+      // $("#new_question_form").load("/index #new_question_form");
+
     });
   });
 
