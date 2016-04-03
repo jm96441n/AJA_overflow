@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     // up vote button on question page
-  $("#up-vote-button").on("click", function(event){
+  $("#question-action-buttons").on("click", "#up-vote-button", function(event){
     event.preventDefault();
 
     var $target = $(event.target);
@@ -15,12 +15,12 @@ $(document).ready(function(){
       $("#up-vote-count").text(votesCount);
       $("#composite-votes").text(allVotes);
     }).fail(function(){
-      //raise error
+      //error message
     });
   });
 
 
-$("#down-vote-button").on("click", function(event){
+$("#question-action-buttons").on("click", "#down-vote-button", function(event){
 
   event.preventDefault()
 
@@ -255,7 +255,7 @@ $("#comments-section").on("click", "#new-comment-link-question", function(event)
 
 $("#comments-section").on("submit", "#new_comment_form", function(event){
   event.preventDefault()
-  debugger
+
   var $target = $(event.target)
   var info = $target.serialize()
 
@@ -266,13 +266,14 @@ $("#comments-section").on("submit", "#new_comment_form", function(event){
   }).done(function(response){
     $("#new-comment-link-question").show()
     $("#comments-in-comments-section").append(response)
+    $("#new_comment_form").text("")
   }).fail(function(){
     //raise error
   })
 })
 
 
-$(".answer-and-comments").on("click", ".new-comment-link-answer", function(event){
+$("#answers-section").on("click", ".new-comment-link-answer", function(event){
   event.preventDefault()
 
   var $target = $(event.target)
@@ -290,9 +291,9 @@ $(".answer-and-comments").on("click", ".new-comment-link-answer", function(event
   })
 })
 
-$(".answer-and-comments").on("submit", "#new_comment_form", function(event){
+$("#answers-section").on("submit", "#new_comment_form", function(event){
   event.preventDefault()
-  debugger
+
   var $target = $(event.target)
   var info = $target.serialize()
 
@@ -301,14 +302,69 @@ $(".answer-and-comments").on("submit", "#new_comment_form", function(event){
     method: 'post',
     data: info
   }).done(function(response){
-    debugger
-    $("#new-comment-link-answer").show()
     // $("#answer-comments-" + ).find("#comments-in-answers-section").append(response)
+    debugger
+    var target = $target
     $("#comments-in-answers-section").append(response)
+    $("#your_comment").val("")
+    $("#new-comment-link-answer").show()
   }).fail(function(){
     //raise error
   })
 })
+
+
+
+
+
+
+
+
+
+
+
+// up-vote answers
+  $("#answers-section").on("click","#up-vote-button", function(event){
+    event.preventDefault();
+
+    var $target = $(event.target);
+
+    $.ajax({
+      url: $target.parent().attr('href'),
+      method: 'get',
+      data: {action: "up-vote"}
+    }).done(function(response){
+      var allVotes = response.composite_votes
+      $target.parent().parent().parent().find("#composite-votes").text(allVotes)
+    }).fail(function(){
+      //raise error
+    });
+  });
+
+// down-vote answers
+$("#answers-section").on("click", "#down-vote-button", function(event){
+
+  event.preventDefault()
+
+  var $target = $(event.target)
+
+  $.ajax({
+    url: $target.parent().attr('href'),
+    method: 'get',
+    data: {action: "down-vote"}
+  }).done(function(response){
+    var allVotes = response.composite_votes
+    $target.parent().parent().parent().find("#composite-votes").text(allVotes)
+  }).fail(function(){
+    //raise error
+  })
+})
+
+
+
+
+
+
 
 });
 
