@@ -27,7 +27,7 @@ post '/questions/new' do
       {question_text: params[:question_text], user_id: session[:user_id]}.to_json
       erb :'/index', {layout: false}
     else
-      redirect '/index'
+      redirect '/'
     end
   else
     @question.errors.full_messages
