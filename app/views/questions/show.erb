@@ -1,9 +1,8 @@
 
 <div id='ask_background'>
 
-
 <div class='row spacing'>
-  <a href="/">Return to questions page</a>
+  <a href="/index">Return to questions page</a>
 </div>
 
 
@@ -31,6 +30,10 @@
       <p id="comment-count" class='stats'>Comments:</p>
         <p class='stats'><%=@question.comments.size%></p>
     </div>
+    <div class='large-2 columns'>
+      <p class='stats'>Answers:</p>
+        <p class='stats' id="composite-votes"><%= @question.answers.size %></p>
+    </div>
     <div class='large-2 columns' >
       <p class='stats'>Up Votes:</p>
         <p class='stats' id="up-vote-count"><%= @up_votes %></p>
@@ -38,10 +41,6 @@
     <div class='large-2 columns'>
       <p class='stats'>Down Votes:</p>
         <p class='stats' id="down-vote-count"><%= @down_votes %></p>
-    </div>
-    <div class='large-2 columns'>
-      <p class='stats'>Composite Votes:</p>
-        <p class='stats' id="composite-votes"><%= @comp_votes %></p>
     </div>
     <div class='large-2 columns'>
       <p class='stats'>Favorited:</p>
@@ -53,32 +52,32 @@
   </div>
 </div>
 
-
-
-<div id="comments-section"
+<div id="comments-section">
   <h5>Comments</h5>
-  <% @question.comments.each do |comment| %>
-  <p><%= comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
-  <% end %>
+  <div id = "comments-in-comments-section">
+    <% @question.comments.each do |comment| %>
+      <p><%= comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
+    <% end %>
+  </div>
+  <a href="/comments/new" id="new-comment-link-question" class="new-comment-link">Add a comment</a>
 </div>
 
 
-
-
-  <h5>Answers</h5>
+<h5>Answers</h5>
 <div id="answers-section">
 
 <% if @answers %>
 <% @answers.each do |answer| %>
 
+<div class="answer-and-comments">
 <div id="answer-wrapper">
   <div class="row">
     <div class='small-2 columns' id="question-action-buttons">
       <p><a href="/questions/<%=@question.id%>/edit" id="up-vote-button"><img src="/images/up-arrow.png" class="vote-button"></a></p>
       <p><a href="/questions/<%=@question.id%>/edit" id="down-vote-button"><img src="/images/down-arrow.png" class="vote-button"></a></p>
     </div>
-    <div class='small-10 columns'>
-      <p><%= answer.answer_text %></p>
+    <div class='small-10 columns answer-text'>
+      <p id="answer-<%=answer.id%>"><%= answer.answer_text %></p>
     </div>
   </div>
   <div class="row">
@@ -88,10 +87,16 @@
     <p class="large-1 columns"></p>
   </div>
 </div>
-  <% answer.comments.each do |comment| %>
-    <p id="answer-comment"><%=comment.comment_text %> by <%= User.find_by(id: comment.user_id).username%> on <%=comment.created_at %></p>
-  <% end %>
-  <p>Add a comment</p>
+
+<div id="answer-comments-<%=answer.id%>" class="answer-comments-section">
+  <div id = "comments-in-answers-section">
+    <% answer.comments.each do |comment| %>
+      <p class="answer-comment"><%=comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
+    <% end %>
+  </div>
+  <a href="/comments/new" id="new-comment-link-answer-<%=answer.id%>" class="new-comment-link-answer">Add a comment</a>
+</div>
+</div>
 <% end %>
 <% end %>
 </div>
