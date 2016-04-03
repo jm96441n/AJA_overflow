@@ -43,6 +43,7 @@ get '/questions/:id' do
   @comp_votes = Vote.composite_votes(@question.id, "Question")
   @favorites = Favorite.favorite_total(@question.id, "Question")
   @answers = @question.answers
+  @tags = @question.tags
   erb :'questions/show'
 end
 
