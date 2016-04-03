@@ -268,14 +268,15 @@ $("#new-comment-link-question").on("click", function(event){
   event.preventDefault()
   debugger
   var $target = $(event.target)
-  var questionID = 0
+  var questionURL = $("#question-action-buttons").find("a").first().attr('href')
+  var questionID = questionURL.split('/')[2]
 
   $.ajax({
     url: $target.attr('href'),
     method: 'get',
-    data: {commentable_type: "question", commentable_id: questionID}
+    data: {commentable_type: "Question", commentable_id: questionID}
   }).done(function(response){
-    debugger
+    $("#new-comment-link-question").hide()
     $("#comments-section").append(response)
   }).fail(function(){
     //raise error
