@@ -353,6 +353,8 @@ display: inline-block;
 
 #login-form {
   display: inline-block;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 #login {
@@ -433,7 +435,11 @@ color: #555E5B;
   padding-left: 29%
 }
 
-#logout-text {
-  display: none;
-  background: #60452E;
+#new_session_div {
+  background-image: url('/images/desert_bg.png');
+}
+
+#log_div {
+  text-align: center;
+
 }

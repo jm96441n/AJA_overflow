@@ -109,43 +109,12 @@ $("#your_answer_form").on("submit", function(event){
 // $("#login-form-container").hide();
 $('.top-bar-right').on('click','#login_link', function(event){
   event.preventDefault()
-  // $('#login-form-container').show()
+  $('#login-form-container').show()
   $("#login_form").fadeIn("100000")
+  $('#login_link').css('display', 'none')
 })
 
-$('#login').on('submit', function(event){
-  event.preventDefault();
-  var data = $(this).serialize();
-  var params = {
-    url: '/login',
-    method: 'post',
-    data: data,
-    dataType: 'html',
-  }
-  $.ajax(params).done(function(response){
-    console.log(data)
-  // $('#login_form').fadeTo('slow', 0)
-  $('.top-bar-right').load('/index .top-bar-right');
-  $('#login_form').css('display','none')
-  }).fail(function(response){
-    alert('A correct username or password enter, you must')
-  })
- });
 
-$('.top-bar-right').on('click','#logout', function(event){
-  event.preventDefault
-  $('#logout-text').css('display','inline')
-  params = {
-    url: '/logout',
-    method: 'get',
-    dataType: 'html'
-  }
-  $.ajax(params).done(function(){
-    $('.top-bar-right').load('/index .top-bar-right')
-    $('#logout-text').css('display','none')
-
-  })
-})
 
     // get route for register form
   $("#register-link").on("click", function(event){
@@ -218,7 +187,7 @@ $("#ask-button").on("submit",function(){
   });
 
     //hide tabs on user show page when document loads
-  // $("#user-questions-tab-data").hide(); 
+  // $("#user-questions-tab-data").hide();
   $("#user-answers-tab-data").hide();
   $("#user-history-tab-data").hide();
   $("#user-favorites-tab-data").hide();
@@ -260,7 +229,7 @@ $("#ask-button").on("submit",function(){
   })
 
 });
-  
+
 
   // post for register form. having trouble targeting parent div in order to bubble. for and parent div ids correspond and are in correct place. not sure what the problem is.
 
