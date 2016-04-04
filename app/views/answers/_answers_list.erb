@@ -1,8 +1,56 @@
-<% if question.answers %>
-<% question.answers.each do |answer| %>
-<p><%= answer.answer_text %></p>
-  <% answer.comments.each do |comment| %>
-    <p><%= comment.comment_text %></p>
+<% if answers %>
+<% answers.each do |answer| %>
+
+<div class="answer-and-comments">
+<div id="answer-wrapper">
+  <div class="row">
+    <div class='small-2 columns' id="answer-action-buttons">
+      <p>
+        <% if logged_in? %>
+        <a href="/answers/<%=answer.id%>/edit" id="up-vote-button">
+          <img src="/images/up-arrow.png" class="vote-button">
+        </a>
+        <% else %>
+          <img src="/images/up-arrow.png" class="vote-button">
+        <% end %>
+      </p>
+      <p id="composite-votes"><%= answer.votes.size %></p>
+      <p>
+        <% if logged_in? %>
+        <a href="/answers/<%=answer.id%>/edit" id="down-vote-button">
+          <img src="/images/down-arrow.png" class="vote-button">
+        </a>
+        <% else %>
+          <img src="/images/down-arrow.png" class="vote-button">
+        <% end %>
+      </p>
+    </div>
+    <div class='small-10 columns answer-text'>
+      <p id="answer-<%=answer.id%>"><%= answer.answer_text %></p>
+    </div>
+  </div>
+  <div class="row">
+    <p class="small-7 columns"></p>
+    <img src="/images/c3po.jpg" id="question-page-asker-img" class="large-2 columns" >
+    <p class="large-2 columns"><a href="/users/<%=answer.user.id%>"><%= answer.user.username %></a></p>
+    <p class="large-1 columns"></p>
+  </div>
+</div>
+
+<div id="answer-comments-<%=answer.id%>" class="answer-comments-section">
+  <div id = "comments-in-answers-section">
+    <h6>Comments: </h6>
+    <% answer.comments.each do |comment| %>
+      <p class="answer-comment"><%=comment.comment_text %> by <a href="/users/<%=comment.user_id%>"><%= User.find_by(id: comment.user_id).username%></a> on <%=comment.created_at %></p>
+    <% end %>
+    <% if answer.comments.empty? %>
+      <p> No comments this question has! </p>
+    <% end %>
+  </div>
+  <% if logged_in? %>
+    <a href="/comments/new" id="new-comment-link-answer-<%=answer.id%>" class="new-comment-link-answer">Add a comment</a>
   <% end %>
+</div>
+</div>
 <% end %>
 <% end %>
