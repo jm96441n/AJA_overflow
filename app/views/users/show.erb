@@ -46,9 +46,15 @@
     </div>
 
     <div id="user-favorites-tab-data" class="list-of-things row large-5 columns">
-      <p>Favorites:</p>
-      <% if @user.favorites %>
-        <p><%= @user.favorites %></p>
+      <p>Favorite Questions:</p>
+        <% @user.favorited_questions.each do |ques| %>
+          <%= ques.question_text %>
+        <% end %>
+
+      <p>Favorite Answers:</p>
+      <% @user.favorited_answers.each do |ans| %> 
+        <%= ans.answer_text %>
+        <br>
       <% end %>
     </div>
   </div>
