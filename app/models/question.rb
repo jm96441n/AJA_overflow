@@ -17,11 +17,6 @@ class Question < ActiveRecord::Base
     user_id == user
   end
 
-  # def self.author?(question_id, user_id)
-  #   question = Question.find_by(id: question_id)
-  #   question.user_id == user_id
-  # end
-
   def ans_count
     self.answers.size
   end
