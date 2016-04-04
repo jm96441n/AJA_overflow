@@ -301,12 +301,9 @@ $("#answers-section").on("submit", "#new_comment_form", function(event){
     method: 'post',
     data: info
   }).done(function(response){
-    // $("#answer-comments-" + ).find("#comments-in-answers-section").append(response)
-    debugger
-    var target = $target
-    $("#comments-in-answers-section").append(response)
-    $("#your_comment").val("")
-    $("#new-comment-link-answer").show()
+    $target.parent().find("#comments-in-answers-section").append(response)
+    $target.parent().find("#your_comment").val("")
+    $target.parent().find("#new-comment-link-answer").show()
   }).fail(function(){
     //raise error
   })
