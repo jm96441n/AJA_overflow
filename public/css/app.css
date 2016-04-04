@@ -312,6 +312,7 @@
   background-size: cover;
   height: 100%;
   width: 100%;
+  min-height: 50rem;
 }
 
 #new-question-area {
@@ -527,6 +528,7 @@ color: #555E5B;
 }
 
 .tags_container {
+  padding-top: 5rem;
   padding-bottom: 3rem;
 }
 

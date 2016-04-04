@@ -18,16 +18,22 @@ get '/questions/index' do
   end
 end
 
+get '/questions/add_tags' do
+  @tags = Tag.all
+  erb :'/questions/add_tags'
+end
 
 post '/questions/new' do
   @question = Question.new(question_text: params[:question_text], user_id: session[:user_id])
+  @tags = Tag.all
   if @question.save
     if request.xhr?
+      session[:quest_id] = @question.id
       content_type :json
       {question_text: params[:question_text], user_id: session[:user_id]}.to_json
-      erb :'/index', {layout: false}
+      erb :'/questions/add_tags'
     else
-      redirect '/'
+      redirect '/questions/add_tags'
     end
   else
     @question.errors.full_messages
