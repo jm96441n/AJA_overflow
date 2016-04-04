@@ -9,12 +9,12 @@ get '/questions/new' do
 end
 
 get '/questions/index' do
-  @questions = Question.all
+  @questions = Question.order("created_at DESC")
 
   if request.xhr?
     erb :"/questions/_index", locals: {questions: @questions}, layout: false
   else
-    erb :"/questions/index"
+    erb :"/questions/index", locals: {questions: @questions}, layout: false
   end
 end
 
@@ -27,7 +27,7 @@ post '/questions/new' do
       {question_text: params[:question_text], user_id: session[:user_id]}.to_json
       erb :'/index', {layout: false}
     else
-      redirect '/index'
+      redirect '/'
     end
   else
     @question.errors.full_messages
