@@ -114,14 +114,14 @@ $('.top-bar-right').on('click','#login_link', function(event){
   $('#login_link').css('display', 'none')
 })
 
-$('.row').on('click','.tag_partial',function(event){
-  event.preventDefault();
-  var params = {
-    url: 
-    type: 'post'
-  }
+// $('.row').on('click','.tag_partial',function(event){
+//   event.preventDefault();
+//   var params = {
+//     url: 
+//     type: 'post'
+//   }
 
-})
+// })
 
     // get route for register form
   $("#register-link").on("click", function(event){
