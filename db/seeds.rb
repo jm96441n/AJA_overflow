@@ -92,7 +92,7 @@ question_ammount.times do
 end
 
 tag_ammount.times do 
-  Tag.create(
+  Tag.find_or_create(
     tag_name: Faker::StarWars.specie
     )
 end

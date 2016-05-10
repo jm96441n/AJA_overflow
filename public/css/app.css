@@ -334,6 +334,14 @@
 
 }
 
+#tags-index-section {
+  background-image: url('http://editor.michelsonrealty.com/generator/tmp/07k4a3jq.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 2rem 0rem 4rem 0rem;
+
+}
+
 #register-bg {
    background-image: url('http://editor.michelsonrealty.com/generator/tmp/07k4a3jq.png');
   background-repeat: no-repeat;
@@ -400,7 +408,18 @@ color: #555E5B;
   margin-bottom: 0rem;
 }
 
+#see_tags{
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 0rem;
+}
+
 #q_link {
+  color: black;
+  text-decoration: underline;
+}
+
+#tag_link {
   color: black;
   text-decoration: underline;
 }
@@ -464,7 +483,10 @@ color: #555E5B;
 .tag {
   background-color: rgba(255,255,255,0.5);
   height: auto;
-  width: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 0px 2px 0px 2px;
   text-align: center;
   color: rgb(64, 58, 51);
   border: 1px solid gray;
