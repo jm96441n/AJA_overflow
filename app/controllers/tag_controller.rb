@@ -1,7 +1,7 @@
 
 get '/tags/index' do
-	@tags = Tag.all
-	erb :'/tags/index'
+  @tags = Tag.all
+  erb :'/tags/index'
 end
 
 get '/tags/new' do

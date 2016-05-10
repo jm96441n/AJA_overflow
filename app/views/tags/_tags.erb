@@ -1,5 +1,13 @@
-<div>
+
+<div class='tags_container'>
+  <h3 class='tag_header_partial'>A tag you must choose. Seek questions you must.</h3>
+  <div class='row'>
   <% tags.each do |tag| %>
-    <p class="tag"><%= tag.tag_name %></p>
+
+    <div class='small-6 large-2 columns tags_show_partial'>
+      <a href='/tags/<%= tag.id %>' ><p class='tag_partial'><%= tag.tag_name %></p></a>
+    </div>
+
   <% end %>
+  </div>
 </div>

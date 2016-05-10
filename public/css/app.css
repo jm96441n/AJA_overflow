@@ -305,17 +305,28 @@
   width: 100%;
 }
 
+#background {
+  background-image: url('/images/maxresdefault.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  min-height: 50rem;
+}
+
 #new-question-area {
   top: 30%;
   left: 20%;
-  position: fixed;
+  position: relative;
   display: block;
   height: 10%;
   width: 100%;
   z-index: 1;
   text-align: center;
-  margin-top: 8rem;
+  padding-top: 8rem;
   margin-bottom: 2rem;
+  min-height: 30rem;
 }
 
 #new-question-text {
@@ -408,15 +419,11 @@ color: #555E5B;
   margin-bottom: 0rem;
 }
 
-#see_tags{
-  text-align: center;
-  font-size: 1.2rem;
-  margin-bottom: 0rem;
-}
+.q_link {
 
-#q_link {
   color: black;
   text-decoration: underline;
+  margin-bottom: 3rem;
 }
 
 #tag_link {
@@ -468,7 +475,7 @@ color: #555E5B;
 
 #q_button {
   text-align: left;
-  padding-left: 29%
+  padding-left: 28%
 }
 
 #new_session_div {
@@ -481,6 +488,7 @@ color: #555E5B;
 }
 
 .tag {
+  padding: 0.5rem;
   background-color: rgba(255,255,255,0.5);
   height: auto;
   width: -webkit-max-content;
@@ -490,6 +498,10 @@ color: #555E5B;
   text-align: center;
   color: rgb(64, 58, 51);
   border: 1px solid gray;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+
 }
 
 
@@ -500,5 +512,45 @@ color: #555E5B;
   height: auto;
 }
 
+.tags_show {
+
+  margin-top: 2rem;
+}
+
+.tag_header {
+
+  text-align: center;
+}
+
+.tag_header_partial {
+  text-align: center;
+  color: white;
+}
+
+.tags_show_partial {
+  margin-top: 2rem;
+}
+
+.tag_partial {
+  padding: 0.5rem;
+  background-color: white;
+  height: auto;
+  width: auto;
+  text-align: center;
+  color: rgb(64, 58, 51);
+  border: 1px solid gray;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+}
+
+.tags_container {
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+
+.tag_partial_container {
+  display: none;
+}
 
 

@@ -1,18 +1,20 @@
-<div>
-	<div id="new-question-area">
-	  <form id="new_q_form" method="POST" action="/questions/new">
 
-	    <div>
-	      <input id="question-text" type="text" name="question_text" placeholder="type your question here">
-	    </div>
+<div id='background'>
+  <div id="new-question-area">
+    <form id="new_question_form" method="POST" action="/questions/new">
 
-	    <input id="new_question_button" type="submit" value="submit question">
-	  </form>
-	</div>
+      <div>
+       <!--  <label for="question-text">What is your question?</label> -->
+        <input id="new-question-text" type="text" name="question_text" placeholder="Ask Yoda, you must.">
+      </div>
 
+      <div id='q_button'>
+        <input id="new_question_button" type="submit" value="Choose Tags">
+      </div>
+    </form>
+  </div>
 
-	<img id='new_q_bg' src='/images/maxresdefault.jpg'>
 </div>
-
-<div id="ask-page-header-photo">
+  <div id="ask-page-header-photo">
+</div>
 </div>
