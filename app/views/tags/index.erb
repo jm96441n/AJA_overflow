@@ -1,0 +1,14 @@
+
+
+<div class='tags_questions'>
+  <h3 class='tag_header'>A tag you must choose. Seek questions you must.</h3>
+  <div class='row'>
+  <% @tags.each do |tag| %>
+
+    <div class='small-6 large-2 columns tags_show'>
+      <a href='/tags/<%= tag.id %>' ><p class='tag_partial'><%= tag.tag_name %></p></a>
+    </div>
+
+  <% end %>
+  </div>
+</div>

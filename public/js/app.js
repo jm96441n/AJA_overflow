@@ -115,7 +115,6 @@ $('.top-bar-right').on('click','#login_link', function(event){
 })
 
 
-
     // get route for register form
   $("#register-link").on("click", function(event){
     if ($('#questions-list-section').size() > 0) {
@@ -138,7 +137,7 @@ $('.top-bar-right').on('click','#login_link', function(event){
 
   $("#new_question_form").on("submit", function(event){
     event.preventDefault();
-
+    $()
     var path = $(event.target).attr("action");
     var formData = $(event.target).serialize();
 
@@ -149,6 +148,7 @@ $('.top-bar-right').on('click','#login_link', function(event){
       dataType: 'html'
     }).done(function(event){
       $("#new_question_form").load("/index #new_question_form");
+
     });
   });
 
