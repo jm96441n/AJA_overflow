@@ -1,36 +1,33 @@
 # Yoda Know
-Brought to you by: @alran @akeem-s @jm96441n
 
+[Live Site][live]
+[live]: http://yodaknow.herokuapp.com/
 
-### Join our trello group here:
+Yoda Know is a Star Wars themed forum built to follow the same functionality as Stack Overflow, using the Sinatra framework. 
 
-https://trello.com/invite/b/C6QCQEmt/c71d8b3060b885ee25f17dd846f639a0/aja-overflow
+##Technologies
+Sinatra, PostgreSQL
 
+##Features
 
-### Color Scheme
+### Post questions or answers
+Users can post questions or submit an answer to a previously submitted question. They can associate multiple pre-created tags with the question they submit.
 
-gold = #D8BF81 (nav bar, lettering in dark color buttons)
+### Comment or vote on questions or answers
+Comments and votes are polymorphic and can happen to both questions and answers.
 
-peach = #F3AF8A
+### Favorites
+Users can "favorite" questions they like and see a list of their favorites on their profile page.
 
-light purple = #B4659C
+### Filter questions by tags
+Users can view questions associated with specific tags.
 
-black-ish = #221F1E
+## Work in Progress / To Do
 
-darker blue = #005D9B
-
-lighter blue = #5AA0D5 (main buttons on home page)
-
-brown = #452F16 (lettering in nav bar)
-
-grey/white = #E4E4E4 (lettering in main buttons)
-
-dark blue = #344096
-
-light brown = #C48150
-
-####Link to star wars CSS color scheme (A New Hope):
-http://www.fubiz.net/en/2015/04/20/the-colors-of-star-wars-palettes-2/
-
-####Star Wars Font:
-http://www.fontspace.com/boba-fonts/star-jedi
+- [ ] Convert from Sinatra to full Rails application
+- [ ] Update UI for Question index page
+- [ ] Fix routing so that when user submits question, re-routes to Question index page
+- [ ] Update footer information
+- [ ] Beautify registration form
+- [ ] Allow user to choose their Star Wars themed avatar
+- [ ] Remove faker data and allow actual user input
