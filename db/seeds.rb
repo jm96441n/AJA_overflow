@@ -91,6 +91,7 @@ question_ammount.times do
     )
 end
 
+
 until (Tag.all.length == 9) do
   Tag.create(
     tag_name: Faker::StarWars.specie

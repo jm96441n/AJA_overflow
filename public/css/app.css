@@ -345,6 +345,14 @@
 
 }
 
+#tags-index-section {
+  background-image: url('http://editor.michelsonrealty.com/generator/tmp/07k4a3jq.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  padding: 2rem 0rem 4rem 0rem;
+
+}
+
 #register-bg {
    background-image: url('http://editor.michelsonrealty.com/generator/tmp/07k4a3jq.png');
   background-repeat: no-repeat;
@@ -412,9 +420,15 @@ color: #555E5B;
 }
 
 .q_link {
+
   color: black;
   text-decoration: underline;
   margin-bottom: 3rem;
+}
+
+#tag_link {
+  color: black;
+  text-decoration: underline;
 }
 
 #question-page-asker-img {
@@ -477,7 +491,10 @@ color: #555E5B;
   padding: 0.5rem;
   background-color: rgba(255,255,255,0.5);
   height: auto;
-  width: auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 0px 2px 0px 2px;
   text-align: center;
   color: rgb(64, 58, 51);
   border: 1px solid gray;
@@ -525,6 +542,20 @@ color: #555E5B;
   -webkit-box-shadow: 0 8px 6px -6px black;
      -moz-box-shadow: 0 8px 6px -6px black;
           box-shadow: 0 8px 6px -6px black;
+}
+
+.tag_partial_clicked{
+  padding: 0.5rem;
+  background-color: gray;
+  height: auto;
+  width: auto;
+  text-align: center;
+  color: rgb(64, 58, 51);
+  border: 1px solid gray;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+
 }
 
 .tags_container {
