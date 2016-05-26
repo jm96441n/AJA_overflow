@@ -544,6 +544,20 @@ color: #555E5B;
           box-shadow: 0 8px 6px -6px black;
 }
 
+.tag_partial_clicked{
+  padding: 0.5rem;
+  background-color: gray;
+  height: auto;
+  width: auto;
+  text-align: center;
+  color: rgb(64, 58, 51);
+  border: 1px solid gray;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+
+}
+
 .tags_container {
   padding-top: 5rem;
   padding-bottom: 3rem;

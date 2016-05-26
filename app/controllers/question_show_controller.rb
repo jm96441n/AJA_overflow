@@ -31,9 +31,9 @@ post '/questions/new' do
       session[:quest_id] = @question.id
       content_type :json
       {question_text: params[:question_text], user_id: session[:user_id]}.to_json
-      erb :'/questions/add_tags'
+      erb :"/questions/add_tags", layout: false
     else
-      redirect '/questions/add_tags'
+      redirect "/questions/add_tags"
     end
   else
     @question.errors.full_messages
