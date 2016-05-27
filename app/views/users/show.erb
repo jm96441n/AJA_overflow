@@ -23,7 +23,7 @@
     </div>
 
     <div id="user-questions-tab-data" class="list-of-things row large-5 columns">
-      <p>Questions Asked:</p>
+      <p><span class="user_show_list_titles">Questions Asked:</span></p>
 
       <% @user.questions.each do |question|%>
       <a href="/questions/<%= question.id %>"> <p> <%= question.question_text %> </p> </a>
@@ -31,7 +31,7 @@
     </div>
 
     <div id="user-answers-tab-data" class="list-of-things row large-5 columns">
-      <p>Answers Given:</p>
+      <p class="user_show_list_titles">Answers Given:</p>
 
       <% @user.answers.each do |answer|%>
       <a href="/answers/<%= answer.id %>"> <p><%= answer.answer_text %></p> </a>
@@ -39,21 +39,21 @@
     </div>
 
     <div id="user-history-tab-data" class="list-of-things row large-5 columns">
-      <p>Answers Given:</p>
-      <p>Member since : <%=@user.created_at%></p>
-      <p>Number of questions asked: <%= @user.questions.size %></p>
-      <p>Number of answers given: <%= @user.answers.size %></p>
+      <p><span class="user_show_list_titles">Answers Given:</span></p>
+      <p><span class="user_show_list_titles">Member since:</span> <%=@user.created_at%></p>
+      <p><span class="user_show_list_titles">Number of questions asked:</span> <%= @user.questions.size %></p>
+      <p><span class="user_show_list_titles">Number of answers given:</span> <%= @user.answers.size %></p>
     </div>
 
     <div id="user-favorites-tab-data" class="list-of-things row large-5 columns">
-      <p>Favorite Questions:</p>
+      <p class="user_show_list_titles">Favorite Questions:</p>
         <% @user.favorited_questions.each do |ques| %>
-          <%= ques.question_text %>
+          <p><%= ques.question_text %></p>
         <% end %>
 
-      <p>Favorite Answers:</p>
+      <p class="user_show_list_titles">Favorite Answers:</p>
       <% @user.favorited_answers.each do |ans| %> 
-        <%= ans.answer_text %>
+        <p><%= ans.answer_text %></p>
         <br>
       <% end %>
     </div>

@@ -50,6 +50,7 @@ $(document).ready(function(){
       data: {action: "favorite"}
     }).done(function(response){
       $("#favorite_count").text(response.favorite_count)
+      $target.parent().parent().html("<img src='/images/fav_star.png' class='vote-button'>")
     }).fail(function(){
       //raise error
     })
