@@ -224,10 +224,9 @@
   position: absolute;
   display: inline-block;
   height: 10%;
-  width: 10%;
+  width: 50%;
   z-index: 1;
   text-align: center;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -251,6 +250,7 @@
 #find-button-homepage {
   background-color: #78DF3E;
   border-radius: 25px;
+  min-width: 270px;
   width: auto;
   height: auto;
 }
