@@ -16,7 +16,7 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
-
+gem 'faker'
 gem 'pry'
 gem 'bcrypt'
 
