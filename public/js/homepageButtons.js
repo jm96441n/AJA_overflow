@@ -1,8 +1,8 @@
 $(document).ready(function(){
-	$("#find-questions-button").on("submit",function(){
+	$("#find-button-homepage").on("click",function(){
 	  event.preventDefault();
 	  $.ajax({
-	    url: $(event.target).attr("action"),
+	    url: '/questions/index',
 	    type: 'get',
 	  }).done(function(response){
 	    $("#ask-button-homepage").fadeOut("10000");
@@ -12,10 +12,10 @@ $(document).ready(function(){
 	  });
 	});
 
-	$("#ask-button").on("submit",function(){
+	$("#ask-button-homepage").on("click",function(){
 	  event.preventDefault();
 	  $.ajax({
-	    url: $(event.target).attr("action"),
+	    url: '/questions/new',
 	    type: 'get',
 	  }).done(function(response){
 	    $("#ask-button-homepage").fadeOut("10000");
